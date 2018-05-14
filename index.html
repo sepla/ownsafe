@@ -1,0 +1,180 @@
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<!--
+Copyright (C) 2015 Sebastian Plaza
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program. 
+If not, see http://www.gnu.org/licenses/. 
+-->
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>OwnSafe</title>
+	<meta charset="utf-8">
+	<meta name="robots" content="nofollow">
+	<meta name="format-detection" content="telephone=yes">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-eval' 'unsafe-inline'; connect-src *; img-src *; style-src * 'unsafe-inline'; media-src *">
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<link rel="stylesheet"type="text/css" href="css/index.css" /> 
+	<link rel="stylesheet" href="css/ownsafe.css" />
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="icon" href="css/lock-black.png" />
+	<script src="js/jquery.mobile-1.4.5/jquery-2.1.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/CryptoJS/components/core-min.js"></script>
+ 	<script src="js/CryptoJS/rollups/pbkdf2.js"></script>
+	<script src="js/CryptoJS/rollups/sha256.js"></script>
+	<script src="js/CryptoJS/rollups/aes.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/content.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+</head>
+<body id="body">
+	<div class="headertask"></div>
+  <div data-role="page" class="ui-page" id="login" data-theme="a"  style="color:grey"></div>
+	<div data-role="page" class="ui-page" id="index" data-theme="a">
+			<div id="waitcontainer" class="center">
+							<p id="wait" class="center"><img id="waitimage" src="js/jquery.mobile-1.4.5/images/ajax-loader2.gif"></p>
+			</div>
+
+			<div id="init" data-inline="true" hidden>
+			<div data-role="panel" class="ui-panel" id="settingsPanel" data-theme="b" data-display="overlay" data-position-fixed="true">
+					<h3 class="center">Menu</h3>
+					<div id="menu_index_buttons">
+							<a data-role="button" data-rel="close" href="#index" id="index_settings_button" class="ui-btn ui-icon-gear ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline index_settings_button menuButtonStyle">Settings</a>
+							<a data-role="button" data-rel="close" href="#install" id="index_install_button" class="ui-btn ui-icon-arrow-d ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline index_install_button menuButtonStyle">Installation</a>
+          </div>
+					<br>
+          		<div id="menu_index_footer">
+							<p class="menuFooter" id="menu_indexfooter_text"></p>
+							<p class="menuFooter" id="licence_footer_text">Copyright &copy; 2015<br>
+							<a href="#" onclick="window.open('http://www.gnu.org/licenses/', '_system');" class="ui-btn ui-mini ui-corner-all ui-btn-inline smallerFont">GNU General Public License</a></p>
+					</div>
+			</div> 
+
+			<div data-role="header" data-theme="b" data-position="fixed" id="indexHeader" data-tap-toggle="false">
+
+				<a href="#settingsPanel" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all buttonStyle"></a>			
+				<h3>OwnSafe</h3>
+				<button type="submit" form="mainform" class="ui-btn ui-btn-right ui-corner-all buttonStyle" id="submit_button" value="Submit" tabindex="3" >Submit</button>
+			</div>
+			<div data-role="main" class="ui-content" data-theme="a" id="main">
+					<form id="index_settings_form" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
+						<p id="changepass_headline" class="ui-btn-icon-top ui-shadow-icon ui-icon-gear titleText">Settings</p>
+							<div id="error" class="dbErrorDescription"></div>
+
+								<fieldset>
+										<p id="serverUrlInput">
+											<label for="url" class="smallerFont">Server-URL</label>
+											<input type="url" placeholder="Server-URL e.g. http://raspberrypi/ownsafe" id="url" required>
+										</p><p>
+											<label for="language" class="smallerFont">Language</label>
+											<select id="language"><option value="EN">English</option></select>
+										</p>
+										<br/>
+										<p id="index_install_p" class="center">
+											<label for="index_install" class="description">Click here for SERVER INSTALLATION hints:</label>
+											<a class="ui-btn ui-mini ui-corner-all ui-btn-inline smallerButton" id="index_install">Server installation manual</a>
+										</p>
+								</fieldset>
+
+						</form>
+			</div>		
+			<div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false" id="indexFooter">
+				<h5 class="center" id="footer_init_text"></h5>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" class="ui-page" id="signup" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="content" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="abouthelp" data-theme="a"></div>
+    <div data-role="page" class="ui-page" id="loginprotocol" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="addentry" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="changepass" data-theme="a"></div>
+    <div data-role="page" class="ui-page" id="eiswitch" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="export" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="import" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="profile" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="settings" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="showentry" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="logout" data-theme="a"></div>
+	
+	<div data-role="page" class="ui-page" id="install" data-theme="a">
+		<div data-role="panel" class="ui-panel" id="installPanel" data-theme="b" data-display="overlay" data-position-fixed="true">
+			<h3 class="center">Menu</h3>
+			<div id="menu_index_buttons">
+					<a data-role="button" data-rel="close" href="#index" id="index_settings_button" class="ui-btn ui-icon-gear ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline index_settings_button menuButtonStyle">Settings</a>
+					<a data-role="button" data-rel="close" href="#install" id="index_install_button" class="ui-btn ui-icon-arrow-d ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline index_install_button menuButtonStyle">Installation</a>
+            </div>
+			<br>
+            <div id="menu_index_footer">
+					<p class="menuFooter" id="menu_indexfooter_text"></p>
+					<p class="menuFooter" id="licence_footer_text">Copyright &copy; 2018<br>
+	<a href="#" onclick="window.open('http://www.gnu.org/licenses/', '_system');" class="ui-btn ui-mini ui-corner-all ui-btn-inline smallerFont">GNU General Public License</a></p>
+			</div>
+		</div>
+
+		<div data-role="header" data-theme="b" data-position="fixed" id="installHeader" data-tap-toggle="false">
+			<a href="#installPanel" id="installPanel_a" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all buttonStyle"></a>
+			<h3>OwnSafe</h3>
+		</div>
+		<div data-role="main" class="ui-content" data-theme="a" id="main">
+			<div id="install_page" class="ui-body ui-body-a ui-corner-all">
+				<p id="changepass_headline" class="ui-btn-icon-top ui-shadow-icon ui-icon-arrow-d titleText">Installation</p>
+					<h4>System requirements for your own server (e.g. Raspberry Pi):</h4>
+					<p>To run this application you need a system with following installed and useable componets (LAMP- or XAMPP-Environmant)</p>
+					<ul>
+						<li>Linux / Solaris / Windows / Mac OS X</li>
+						<li>Apache web server</li>
+            <li>PHP 5.2 or higher (mysqli module required)</li>
+						<li>MariaDB/MySql database</li>
+						<li>Optional: Sendmail/Posfix for sending mails</li>
+					</ul>
+                <br>
+					<h4>Server installation</h4>
+					<ul>
+						<li>DOWNLOAD the server application: <a href="#" onclick="window.open('https://github.com/sepla/ownsafe', '_system');" class="ui-btn ui-mini ui-corner-all ui-btn-inline">Github.com</a></li>
+						<li>Unzip the files and copy the ownsafe folder to the HOME-directory of the Apache server (mostly /var/www/html)</li>
+						<li>Edit the configuration file (config.php in config directory): Enter on "DB" your values for the MySql database address, username, password and database name.<br>The application creates the necessary database tables automaticly</li>
+						<li>For testing server functionality call the application test site in your browser, http://your-server-url/ownsafe/test.php</li>
+				</ul>	
+    		    <p>In case of problems set the owner and group of the ownsafe folder (including all files) to www-data or change the access rights</p>
+         <br>
+				<hr>
+                
+			
+         <br>
+				</div>
+                <p>Other languages: <a href="INSTALL.TXT" type="button" target="_blank" download="INSTALL.TXT" class="ui-btn ui-mini ui-corner-all ui-btn-inline">INSTALL.TXT</a></p>
+			</div>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false" id="installFooter">
+			<h5 class="center" id="footer_init_text"></h5>
+		</div>
+	</div>
+</body>
+</html>

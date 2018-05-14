@@ -1,0 +1,402 @@
+@media only screen and (min-width: 43em){
+	.ui-header {
+		max-width: 43em !important;
+	}
+	.ui-content {
+		max-width: 43em !important; 
+	}
+	.ui-footer {
+		max-width: 43em !important;
+	}
+}
+
+.ui-page {
+	margin: 0 auto !important;
+	position: relative !important;
+	border: 0px #000000 outset !important;
+}	
+
+.ui-header {
+	margin: 0 auto !important;
+	border: 0px #000000 outset !important;
+	position: fixed !important;
+	height:3em !important;
+	background: rgba(29, 29, 29, 0) !important;
+}
+
+.ui-content {
+	max-width: 43em !important; 
+	margin: 0 auto !important;
+	position: relative !important;
+	border: 0px #000000 outset !important;
+}
+
+.ui-footer {
+	margin: 0 auto !important;
+	border: 0px #000000 outset !important;
+	bottom:0 !important;
+	height:3em !important;
+	background: rgba(29, 29, 29, 0) !important;
+}
+
+.headertask {
+	position:fixed;
+	right:0;
+	top:0;
+	left:0;
+	height:3em;
+	background-color:#1d1d1d;
+	text-align:center;
+	z-index:1
+}
+
+.ui-btn:focus {
+	outline: none;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+body {
+	background-color: #f9f9f9 !important;
+	color: white !important;
+}
+
+.showentry-wrapper{
+	margin-bottom: 10px;
+	padding: 0;
+}
+
+.menu_login_buttons {
+	text-align:left !important;
+}
+
+.popupErrorIcon {
+	background-color: #ff6666 !important;
+	margin-top:  0px;
+	margin-right: 10px;
+	margin-bottom:  10px;
+	position: relative;
+	float: left;
+}
+
+.popupInfoIcon {
+	background-color: #6666ff !important;
+	margin-top:  0px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	position: relative;
+	float: left;
+}
+
+.popupOkIcon {
+	background-color: #66ff66 !important;
+	margin-top:  0px;
+	margin-right: 10px;
+	margin-bottom:  10px;
+	position: relative;
+	float: left;
+}
+
+.popupTitle {
+	padding-top: 20px;
+}
+
+
+.entryText {
+	font-size: 1em !important;
+	margin-left: 10px !important;
+	margin-bottom: 10px !important;
+	display: inline-block;
+	max-width: 75% !important;
+	border: 0px;
+}
+
+.copyButton {
+	margin: 0 !important;
+	padding: 0 !important;
+	color: black !important;
+	float: right !important;
+}
+
+.showButton {
+	margin-right: 15px !important;
+	margin-left: 0px !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	padding: 0 !important;
+	color: black !important;
+	float: right !important;
+}
+
+
+
+.bottomButtonStyle {
+	background-color: #006600 !important;
+	border: 1px solid #003300 !important;
+}
+
+.buttonStyle {
+	background-color: #006600 !important;
+	margin: 3px !important;
+	border: 1px solid #003300 !important;
+}
+
+.menuButtonStyle {
+	background-color: transparent !important;
+	border: 0 !important;
+	width: 75%;
+	text-align: left !important;;
+}
+
+.hilightbackground {
+	background-color:#006600 !important;
+	border: 1px solid #003300 !important;
+}
+
+.popupTextBottom {
+	clear: both;
+}
+
+.ui-mini.ui-mini-smaller .ui-btn-inner {
+	font-size: 0.6em !important;
+	padding: .45em 10px .4em !important;
+}
+
+.noshadow {
+	-moz-border-radius: 0px !important;
+	-khtml-border-radius: 0px !important;
+	-webkit-border-radius: 0px !important;
+	box-shadow: none !important;
+	border: 0px !important;
+}
+
+.disabled {
+	pointer-events: none !important;
+	cursor: default !important;
+}
+
+.titleText {
+	position:relative !important;
+	text-align:center !important;
+	color:brown !important;
+}
+
+.description {
+	font-size: 0.7em !important;
+	padding: 0;
+	border: 0;     
+	color: #006600 !important;
+	text-align:center !important;
+}
+
+.warningDescription {
+	font-size: 0.7em !important;
+	padding: 0;
+	border: 0;     
+	color:red !important;
+	text-align:center !important;
+}
+
+.menuFooter {
+	font-size: 0.7em !important;
+	padding: 0;
+	border: 0;     
+	text-align:center !important;
+}
+
+.dbErrorDescription {
+	font-size: 0.8em !important;
+	padding: 0;
+	border: 0;     
+	color:red !important;
+	text-align:center !important;
+}
+
+.clearclipboardButton {
+	font-size: 0.6em !important;
+	padding: .45em 10px .4em !important;
+	color:red !important;
+}
+
+.showPasswordColor {
+	color:grey !important;
+}
+
+.smallerButton {
+	font-size: 0.6em !important;
+	padding: .45em 10px .4em !important;
+}
+
+.smallerFont {
+	font-size: 0.7em !important;
+	padding: 0;
+	border: 0;
+}
+
+.closePopupButton {
+	font-size: 0.6em !important;
+	padding: 10px 10px 10px 10px !important;
+	border: 1px silver solid !important;
+	color: grey !important;
+	text-transform: uppercase !important;
+}
+
+.emailHintPopupButton {
+	font-size: 0.5em !important;
+	padding: 0px !important;
+	margin: 2px 0px 0px 0px !important;
+	border: 0px silver dashed !important;
+	color: grey !important;
+	float: left !important;
+	background-color: transparent !important;
+}
+
+
+.positionClosePopupButton {
+	text-align:right !important;
+	vertical-align:bottom !important;
+}
+
+.clearFloat{
+	clear:both;
+}
+
+.usernameProfile{
+	text-align:center !important;
+	color:brown;
+}
+
+.lastLogin {
+	text-align:left !important;
+	font-size: 0.7em !important;
+	padding: 0;
+	border: 0;
+	color: green;
+	vertical-align:top !important;
+}
+
+.lastFailedLogin {
+	text-align:right !important;
+	font-size: 0.7em !important;
+	padding: 0;
+	border: 0;
+	color: green;
+	vertical-align:top !important;
+}
+
+.failedLogin {
+	text-align:right !important;
+	font-size: 0.7em !important;
+	padding: 0;
+	border: 0;
+	color:red;
+	vertical-align:top !important;
+}
+
+.lastLoginArea {
+	text-align:left !important;
+	vertical-align:top !important;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.lastFailedLoginArea {
+	text-align:right !important;
+	vertical-align:top !important;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.smallerPopup {
+	max-width:400px !important;
+}
+
+.center {
+	text-align:center !important;
+}
+
+.left {
+	text-align:left !important;
+}
+
+.show_showbutton {
+	padding-left: 10px;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+}
+
+.show_urlHref {
+	font-size: 1em !important;
+}
+
+.ui-li-divider {
+	color: brown !important;
+}
+
+.smmallerTable {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.nopadding {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.loginprotocoltable {
+	border-collapse: collapse;
+	border: 0px;
+	margin: 5px;
+	width: 100%;
+} 
+
+.loginprotocoltable td {        
+	padding: 5px;
+	text-align:center !important;
+	font-size: 0.7em !important;
+	vertical-align:top !important;
+}
+
+.loginprotocoltable th {        
+	padding: 5px;
+	text-align:center !important;
+	font-size: 0.8em !important;
+	vertical-align:bottom !important;
+}
+
+.waitForKeyGeneration {
+	font-size: 1.2em;
+	text-align:center;
+}
+
+.loginprotocoltable tr:nth-child(even) {
+	background: #EEEEEE;
+}
+
+.loginprotocoltable tr:nth-child(odd) {
+	background: #FFFFFF
+}
+
+.protocol_ok {
+	color: green;
+}
+
+.protocol_failed {
+	color: red;
+}
+
+.protocol_blocked {
+	color: blue;
+}
