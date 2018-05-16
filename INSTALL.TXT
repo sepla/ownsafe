@@ -28,7 +28,7 @@ ENGLISH:
 
    Server installation:
 
-    - Unzip the files and copy the ownsafe folder to the HOME-directory of the Apache server(mostly /var/www/html)
+    - Copy the ownsafe folder to the HOME-directory of the Apache server(mostly /var/www/html)
     - Edit the configuration file (config.php in config directory): Enter on "DB" your values for the MySql database address, username, password and database name. The application creates the necessary database tables automaticly.
     - On "LANGUAGE" you can choose the gui language. Currently available: EN, DE, PL
     - For testing server functionality call the application test site in your browser, http://your-server-url/ownsafe/test.php
@@ -63,7 +63,7 @@ DEUTSCH:
 
    Installation:
 
-    - Datei entpacken und den Ordner ownsafe in das HOME-Verzeihnis des Apache-Servers kopieren (meistens /var/www/html)
+    - Den Ordner ownsafe in das HOME-Verzeihnis des Apache-Servers kopieren (meistens /var/www/html)
     - Die Konfigurationsdatei editieren (config.php aus dem config-Ordner): Hier unter "DB" die entsprechenden Werte für die Adresse der Mysql-Datenbank, Benutzer, Passwort und den Datenbanknamen angeben. Die benötigten Datenbanktabellen werden von der Anwendung automatisch erstellt.
     - Unter "LANGUAGE" eventuell die Sprache wählen. Momentan verfügbar: EN, DE, PL
     - Zum Testen der Serverfunktionalität im Browser die Testseite der Anwendung aufrufen, http://my-server-url/ownsafe/test.php
@@ -100,7 +100,7 @@ POLSKI:
 
   Instalacja:
 
-    - Rozpakuj pliki i skopiuj folder ownsafe do katalogu HOME z serwera Apache (na ogół /var/www/)
+    - Skopiuj folder ownsafe do katalogu HOME z serwera Apache (na ogół /var/www/)
     - Edytuj plik konfiguracyjny (config.php w folderze config): Przy "DB" wpisz dane dotyczące bazy danych MySql jak adres, login, hasło i nazwa bazy danych. Tabele bazy danych są tworzone automatycznie przez aplikację.
     - Przy "LANGUAGE" wpisz ewentualnie język użytkownika. Obecnie ważne wartości: EN, DE, PL
     - Na test funkcji serwera otwórz strone testową aplikacji w przeglądarce, http://my-server-url/ownsafe/test.php
