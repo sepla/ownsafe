@@ -3,7 +3,7 @@ OwnSafe - Copyright (C) 2018 Sebastian Plaza - GNU General Public License
 
 ENGLISH:
 
-  About:
+  About
 
   OwnSafe is an open source password manager for your own linux server. It can be used both in the browser and as an smartphone app (ANDROID).
 
