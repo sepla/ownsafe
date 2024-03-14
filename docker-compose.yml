@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  php:
+    container_name: Ownsafe_PHP
+    hostname: ownsafe_php
+    build:
+      context: ./
+      dockerfile: ./docker/php/Dockerfile
+    volumes:
+      - ./ownsafe:/var/www/html
+    depends_on:
+      - mariadb
+
+  nginx:
+    image: nginx:latest
+    container_name: Ownsafe_NGINX
+    hostname: ownsafe_nginx
+    ports:
+      - 81:80
+    links:
+      - php
+    volumes:
+      - ./docker/nginx-conf:/etc/nginx/conf.d
+      - ./ownsafe:/var/www/html
+    depends_on:
+      - php
+
+  mariadb:
+    image: mariadb:10.9
+    container_name: Ownsafe_DB
+    hostname: ownsafe_db
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: ownsafe
+      MARIADB_DATABASE: ownsafe
+      MARIADB_USER: ownsafe
+      MARIADB_PASSWORD: ownsafe
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+
+volumes:
+
+  mysqldata:

@@ -1,0 +1,197 @@
+101: Registrieren
+102: OwnSafe
+103: Anmelden
+104: Mit Ihrem OwnSafe-Konto anmelden
+105: Benutzername
+106: Passwort
+107: Schließen
+108: Anmeldung fehlgeschlagen...
+109: Benutzernamen oder Passwort prüfen.
+110: Passwort-Hinweis
+111: E-Mail Adresse eingeben
+112: Senden
+113: Kein Passwort-Hinweis vorhanden (E-Mail wurde nicht gesendet)
+114: Benutzer oder E-Mail Adresse nicht gefunden
+115: Passwort-Hinweis wurde gesendet. Bitte Ihr E-Mail Postfach prüfen.
+116: E-Mail konnte nicht gesendet werden.
+117: Bitte alle benötigten Felder ausfüllen.
+118: Sie haben sich nach der letzten Anmeldung nicht abgemeldet!
+119: Melden Sie sich aus Sicherheitsgründen nach jeder Sitzung ab.
+120: Fehler!
+121: Entschuldigung, etwas ist schief gegangen (siehe Logdaten der JavaScript-Console).
+122: Zu viele Fehlversuche bei der Anmeldung!
+123: Der Zugang wird temporär gesperrt.
+124: Bitte warten Sie
+125: Minuten.
+126: In die Zwischenablage kopiert
+127: Nicht vergessen die Zwischenablage nach dem Kopieren zu löschen!
+128: Server-URL
+129: Sprache
+130: Server-URL zurücksetzen
+131: Der Inhalt der Zwischenablage wird nach 30 Sekunden gelöscht.
+132: Manche Änderungen werden nach der erneuten Anmeldung wirksam.
+133: ZWISCHENABLAGE LEEREN
+134: Es wird empfohlen, das Browser-Fenster nach dem Abmelden zu schließen.
+135: Ihre Verbindung ist UNSICHER!
+136: Bitte eine HTTPS-Verbindung nutzen!
+137: OwnSafe
+138: Senden
+139: OwnSafe-Konto erstellen
+140: Password wiederholden
+141: 
+142: Konto erfolgreich erstellt! Bitte melden Sie sich jetzt an.
+143: Fehlgeschlagen! Konto konnte nicht erstellt werden. Bitte versuchen Sie es erneut.
+144: Benutzername existiert bereits.
+145: Bitte einen anderen Benutzernamen wählen.
+146: Die E-Mail Adresse wird bereits verwendet.
+147: Sie können auch nur einen Benutzername anstatt der E-Mail Adresse verwenden.
+148: Die Passwörter stimmen nicht überein!
+149: Das Passwort ist zu unsicher!
+150: Bitte Klein- und Großbuchstaben, Ziffern und Sonderzeichen benutzen.
+151: Bitte eine gültige E-Mail Adresse angeben.
+152: Sitzung ungültig. Bitte erneut anmelden.
+153: Bitte warten...
+200: Menü
+201: Profil
+202: Zugangsdaten ändern
+203: Einstellungen
+204: Über/Hilfe
+205: Abmelden
+206: Letzte Anmeldung
+207: Fehlgeschlagene Anmeldung
+208: Versuch(e)
+209: Keine Einträge
+210: Neu
+211: Oben
+212: Export/Import
+213: Neuer Eintrag
+214: Titel
+215: Benutzername
+216: Url
+217: Notiz
+218: Eintrag erfolgreich gespeichert.
+219: Fehlgeschlagen! Eintrag konnte nicht gespeichert werden. Bitte erneut versuchen.
+220: Bitte einen Titel angeben.
+221: Die Passwörter stimmen nicht überein!
+222: Speichern
+223: Pass.gen
+224: Rücksetz.
+225: Eintrag anzeigen
+226: Eintrag erfolgreich gespeichert!
+227: Fehlgeschlagen! Eintrag konnte nicht gespeichert werden! Bitte erneut versuchen.
+228: Editieren
+229: Löschen
+230: Sind Sie sicher, dass der Eintrag gelöscht werden soll?
+231: Es kann nicht Rückgängig gemacht werden.
+232: Abbrechen
+233: Optionale Profildaten editieren
+234: Name
+235: E-Mail Adresse
+236: Sie können per E-Mail über Anmeldungen oder fehlgeschlagene Anmeldeversuche informiert werden (siehe Einstellungen).
+237: Passworthinweis
+238: Ein Hinweis auf Ihr Passwort kann für Sie wichtig sein, da es kein "Passwort vergessen"-Knopf gibt (Ihr Passwort ist niemals im System gespeichert). Es wird an die oben angegebene E-Mail Adresse gesendet. Bitte hier kein Passwort angeben!
+239: Profil wurde erfolgreich gespeichert.
+240: Fehlgeschlagen! Das Profil konnte nicht gespeichert werden! Bitte erneut versuchen.
+241: Nichts zu speichern.
+242: Bitte eine andere E-Mail Adresse verwenden.
+243: Konto löschen
+244: Diese Funktion löscht alle Ihre Einträge und entfernt Ihr Konto aus dem System.
+245: Es kann nicht Rückgängig gemacht werden.
+246: Möchten Sie das wirklich tun?
+256: Ja, ich verstehe, dass alle meine Daten gelöscht werden und mein Konto dauerhaft entfernt wird
+257: Konto löschen!
+258: Zeit für die automatische Abmeldung
+259: Passwortgenerator - anfängliche Länge
+260: Sende mir eine E-Mail bei jeder erfolgreichen Anmeldung
+261: Einstellungen erfolgreich gespeichert.
+262: Fehlgeschlagen. Einstellungen konnten nicht gespeichert werden! Bitte erneut versuchen.
+263: Zugangsdaten ändern
+264: Neues Passwort
+265: Passwort erneut eingeben
+266: Zugangsdaten wurden erfolgreich geändert.
+267: Fehlgeschlagen! Zugangsdaten konnten nicht geändert werden! Bitte erneut versuchen.
+268: Das aktuelle Passwort ist nicht korrekt.
+269: Das neue Passwort ist mit dem aktuellen identisch.
+270: Alle Einträge in eine CSV-Datei exportieren
+271: Passwort eingeben
+272: Diese Funktion entschlüsselt und exportiert alle Einträge in eine CSV-Datei. Die Inhalte sind einsehbar!
+273: Es wird jetzt eine Datei mit entschlüsselten Daten heruntergeladen.
+274: Bitte diese Datei mit Vorsicht behandeln!
+275: Das Passwort ist nicht korrekt.
+276: Es gibt keine Einträge zum Exportieren.
+277: Über / Hilfe
+278: OwnSafe ist ein Passwortmanager auf OpenSource-Basis. Es kann sowohl im Browser als auch als Smartphone App (ANDROID) verwendet werden. Die gesamte Ver- und Entschlüsselung der Einträge wird auf der Client-Seite ausgeführt (Browser), so dass alle Einträge immer nur Verschlüsselt über das Internet übertragen werden.
+279: Sicherheit
+280: Der Schlüssel für die Ver- und Entschlüsselung wird nie im System gespeichert. Er wird jedes Mal neu direkt aus dem Benutzernamen und dem Passwort generiert und steht dann nur im Browser solange man angemeldet ist zur Verfügung. Die Ver- und Entschlüsselung wird nur auf der Client-Seite (Browser) ausgeführt und die Einträge werden immer verschlüsselt über das Internet übertragen. Es wird trotzdem dringend empfohlen eine verschlüsselte HTTPS-Verbindung zu verwenden, da während der Anmeldung Benutzerdaten (Hash-Wert vom Passwort) zum Server gesendet werden. Beim nachträglichen Ändern der Zugangsdaten werden alle Einträge geladen, mit einem neu generierten Schlüssel verschlüsselt und wieder gespeichert. Im Falle einer Störung besteht das Risiko von Datensverlust. Bei einer instabilen Verbindung wird empfohlen temporär vor diesem Vorgang einen Export der Daten durchzuführen.
+281: Kopier-Funktion
+282: Bitte nicht vergessen nach dem Kopieren die Zwischenablage wieder zu löschen. Sie werden nach dem Abmelden explizit daran erinnert.
+283: Abmelden
+284: Aus Sicherheitsgründen ist es empfohlen den Browser nach jedem Abmelden komplett zu schließen. Bitte nicht vergessen nach dem Kopieren die Zwischenablage wieder zu löschen. Sie werden nach dem Abmelden explizit daran erinnert.
+285: Passwort vergessen
+286: Es steht keine "Passwort vergessen"-Funktion zur Verfügung, weil das Passwort nie auf dem System gespeichert wird. Bitte einen Passwort-Hinweis in Ihrem Profil angeben, welches Ihnen helfen soll sich an Ihr Passwort zu erinnern. Es wird an Ihre E-Mail Adresse gesendet. Bitte hier kein Passwort eintragen.
+287: E-Mail Benachrichtigungen
+288: Es wird empfohlen Ihre E-Mail Adresse in Ihrem Profil anzugeben. Sie werden über Fehlversuche bei der Anmeldung informiert und falls Sie Ihr Passwort vergessen sollten kann ein Passwort-Hinweis zugestellt werden (wenn Sie einen in Ihrem Profil hinterlegt haben). Zum Versenden von E-Mails muss der Server, auf dem diese Anwendung betrieben wird, korrekt konfiguriert sein (Das Versenden der E-Mails über sendmail auf dem Server muss möglich sein, alternativ prüfen Sie den "Path to sendmail"-Parameter in der phpinfo).
+289: Kontakt
+290: Passwort zeigen
+291: Suchen in
+292: Einträgen...
+293: Aktuelles Passwort
+294: Eintrag editieren
+295: Der Vorgang darf nicht unterbrochen werden!
+296: Datei wurde erfolgreich gespeichert.
+297: Passwort in die Zwischenablage kopieren
+298: Benutzername in die Zwischenablage kopieren
+299: Sende mir eine E-Mail bei jedem fehlgeschlagenen Anmeldeversuch
+300: Einträge aus einer CSV-Datei importieren
+301: CSV-Datei eingeben
+302: Importieren
+303: Exportieren
+304: Import
+305: Daten wurden erfolgreich importiert
+306: Bitte diese Datei mit Vorsicht behandeln!
+307: Datensätze gesamt:
+308: Erfolgreich importiert:
+309: Fehlerhaft:
+310: Installationshinweise
+311: Installation
+312: Sprache
+313: Server-URL
+314: Passwortliste
+315: Es befinden sich eventuell noch unverschlüsselte Export-Dateien im Ownsafe-Ordner auf der SD-Karte
+316: Bitte eine CSV-Datei angeben.
+317: Durchsuchen...
+318: Keine Datei ausgewählt...
+319: ist angemeldet
+320: Login-Protokoll
+321: Login-Protokoll
+322: Datum
+323: IP-Adresse
+324: Client
+325: Status
+326: Versuch
+327: Zähler
+328: Zeitraum für die Anzeige des Login-Protokolls in Monaten
+
+330: Bitte warten...
+331: Schlüssel wird generiert
+340: URL in die Zwischenablage kopieren
+341: Notiz in die Zwischenablage kopieren
+
+400: Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.
+401: Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.
+402: Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe http://www.gnu.org/licenses/.
+500: Hallo
+501: Ungueltige Anmeldeversuche an Ihrem OwnSafe-Konto
+502: Das ist eine Nachricht von Ihrem OwnSafe-Konto:
+503: Es wurde
+504: mal versucht, sich an Ihrem OwnSafe-Konto mit einem falschen Passwort anzumelden.
+505: Ihr Konto wurde jetzt für
+506: Minute gesperrt.
+507: Anmeldung an Ihrem Ownsafe-Konto
+508: Details aus dem Login-Protokoll:
+509: Es wurde eine erfolgreiche Anmeldung an Ihrem OwnSafe-Konto durchgeführt.
+510: Ihr Passwort-Hinweis für die Anmeldung an Ihrem OwnSafe-Konto
+511: Sie haben den Passwort-Hinweis für Ihr OwnSafe-Konto angefordert.
+512: Aenderung der Zugangsdaten zu Ihrem OwnSafe-Konto
+513: Die Zugangsdaten wurden geändert.
+514: Ihr Passwort-Hinweis lautet:

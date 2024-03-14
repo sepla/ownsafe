@@ -1,0 +1,197 @@
+101: Sign up
+102: OwnSafe - Sign in
+103: Sign in
+104: Sign in with your OwnSafe account
+105: Username
+106: Password
+107: Close
+108: Login failed...
+109: Check your username or password.
+110: Ppassword hint
+111: Enter your email address
+112: Send
+113: You have no password hint (email was not sent)
+114: User or email address not found.
+115: Your password hint has been send. Check your email account.
+116: Email could not be sent.
+117: Please fill all necessary fields.
+118: You did not logout after your last session!
+119: For security reasons always logout after each session.
+120: Error!
+121: Sorry, something went wrong (check javascript console log).
+122: Too many incorrect login attempts!
+123: You are temporary blocked for login.
+124: Wait about
+125: minutes.
+126: Copied to the clipboard
+127: Do not forget to clear the clipboard after copying!
+128: Server URL
+129: Language
+130: reset server URL
+131: The content of the clipboard will be cleared after 30 seconds.
+132: Some changes are active after next login.
+133: CLEAR THE CLIPBOARD
+134: It is recommended to close the browser after logout.
+135: Your connection is NOT SECURE!
+136: Use a secure HTTPS connection!
+137: OwnSafe - Sign up
+138: Submit
+139: Create a OwnSafe account
+140: Reenter password
+141: 
+142: Signup successfully! Please login now.
+143: Signup failed! Please try again.
+144: User already exists.
+145: Please choose another username.
+146: Email address already in use.
+147: You can use a username instead of email address.
+148: The passwords are not similar!
+149: The password is too insecure!
+150: Use lower and upper case, numbers and special characters.
+151: Please enter valid email address.
+152: Invalid session. Please login again.
+153: Please wait...
+200: Menu
+201: Profile
+202: Change login data
+203: Settings
+204: About/Help
+205: Logout
+206: Last login
+207: Last failed login
+208: atpt.
+209: No entries
+210: New
+211: Up
+212: Export/Import
+213: New entry
+214: Title
+215: Username
+216: Url
+217: Note
+218: Entry added successfully.
+219: Adding entry failed! Please try again.
+220: Please enter a title.
+221: The passwords are not similar!
+222: Save
+223: Generate password
+224: Reset
+225: Show entry
+226: Entry saved successfully!
+227: Saving entry failed! Please try again.
+228: Edit
+229: Delete
+230: Are you sure you want to delete this entry?
+231: This action cannot be undone.
+232: Cancel
+233: Edit optional profile data
+234: Your name
+235: Email address
+236: You can be notified about logins or failed login attempts (settings)
+237: Password hint
+238: A password hint may be important because there is no "forgot password" button (your password is never stored on the system). It will be send to the email address above. Do not enter the password here!
+239: Profile saved successfully.
+240: Saving profile failed! Please try again.
+241: Nothing to save.
+242: Use another email address.
+243: Delete account
+244: This will delete all your data and remove your account.
+245: This action cannot be undone!
+246: Do you really want to do this?
+256: Yes, I understand that this will delete all my data and remove my account
+257: Delete my account!
+258: Time for automatic logout
+259: Password generator - initial length
+260: Send me an email about every successful login
+261: Settings saved successfully.
+262: Saving settings failed! Please try again.
+263: Change login data
+264: New password
+265: Reenter new password
+266: Login data changed successfully.
+267: Changing login data failed! Please try again.
+268: The current password is not correct.
+269: New password is identical with the current password.
+270: Export all entries to a csv file
+271: Enter your password
+272: This will decrypt and export all your entries to a csv formatted file. The entries are visible!
+273: A file containing decrypted data will be downloaded now.
+274: Handle this file with care!
+275: The password is not correct.
+276: You have no entries to export.
+277: About / Help
+278: OwnSafe is an open source password manager. It can be used both in the browser and as a smartphone app (ANDROID). All the encryption/decryption of the data records is handled on client side so that all entries are always transmitted encrypted over the internet.
+279: Security
+280: The key for encryption/decryption is never stored on the system. It is generated every time anew directly from your credentials and is only available in browser as long as your are logged in. The encryption/decryption is handled on client side (browser) all the time and the entries are sent always encrypted over the internet. Anyway it is strongly recommended to use a HTTPS connection, because while the login process your credentials (digest value of the password) are send to the server. While changing login data all entries will be loaded, enrcypted with a new generated key and stored again. In case of a disruption risk of data loss occurs. On instable connection it is recommended to export the entries temporarily in advance this procedure.
+281: Copy function
+282: Don't forget to clean the clipboard after you have copied some entries. You will be reminded to do this after logout.
+283: Logout
+284: For security reasons it is recommended to close the browser after logout. Don't forget to clean the clipboard after you have copied some entries. You will be reminded to do this after logout.
+285: Forgot password
+286: There is no 'forgot password' button available because the password is never stored on the system. Enter a password hint to you profile and it will be send to your email address if you cannot remember your password. It will be sent to you via e-mail. Don't enter the password here. 
+287: E-Mail notifications
+288: It is recommended to add your email address to your profile. You will be informed about failed login attempts and if you have forgot your password a password hint can be send to this email address (if you have added a password hint your profile). For sending an email the server you are running this application on must be properly configured (you must be able to send an email by sendmail on your server alternatively check the "Path to sendmail" parameter on phpinfo).
+289: Contact
+290: Show password
+291: Search in
+292: entries...
+293: Current password
+294: Edit entry
+295: Due to danger of data loss this process must not be interrupted.
+296: File has been stored successfully.
+297: Copy password to clipboard
+298: Copy user to clipboard
+299: Send me an email about every failed login attempt
+300: Import entries from a CSV file
+301: Chose a CSV file
+302: Import
+303: Export
+304: Import
+305: Entries successfully imported
+306: Handle this file with care.
+307: Total entries:
+308: Successfully imported:
+309: Faulty:
+310: Installation hints
+311: Installation
+312: Language
+313: Server-URL
+314: Password list
+315: There are possibly still unencrypted export files in Ownsafe folder on the SD card
+316: Please specify a CSV file.
+317: Search...
+318: No file selected...
+319: is logged in
+320: Login protocol
+321: Login protocol
+322: Date
+323: IP-Address
+324: Client
+325: Status
+326: Attempt
+327: counter
+328: Login protocol appearens period in month
+
+330: Please wait...
+331: Generating the key
+340: Copy URL to clipboard
+341: Copy note to clipboard
+
+400: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+401: This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+402: You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. 
+500: Hello
+501: Incorrect attempts to access your OwnSafe account
+502: This is a message from your OwnSafe account:
+503: There was/were
+504: attempt(s) to access your OwnSafe account with an incorrect password.
+505: Your account is blocked now for
+506: minutes.
+507: A sign in to your OwnSafe account
+508: Details from the login protocol:
+509: A successful login to your OwnSafe account
+510: Your password hint to access your OwnSafe account
+511: You requested your password hint for your OwnSafe account.
+512: Change of the login data to your OwnSafe account
+513: The login data have been changed.
+514: Your password hint is:
