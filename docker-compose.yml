@@ -4,6 +4,7 @@ services:
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
+    restart: always
     build:
       context: ./
       dockerfile: ./docker/php/Dockerfile
@@ -16,6 +17,7 @@ services:
     image: nginx:latest
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
+    restart: always
     ports:
       - 81:80
     links:
@@ -30,6 +32,7 @@ services:
     image: mariadb:10.9
     container_name: Ownsafe_DB
     hostname: ownsafe_db
+    restart: always
     ports:
       - "3306:3306"
     environment:
