@@ -6,10 +6,10 @@ services:
     hostname: ownsafe_php
     restart: always
     build:
-      context: ./
+      image: https://github.com/sepla/ownsafe.git
       dockerfile: ./docker/php/Dockerfile
     volumes:
-      - /volume1/docker/ownsafe:/var/www/html
+      - ./ownsafe:/var/www/html
     depends_on:
       - mariadb
 
@@ -23,8 +23,7 @@ services:
     links:
       - php
     volumes:
-      - /volume1/docker/ownsafe/nginx-conf:/etc/nginx/conf.d
-      - /volume1/docker/ownsafe:/var/www/html
+      - ./docker/ownsafe/nginx-conf:/etc/nginx/conf.d
     depends_on:
       - php
 
@@ -34,14 +33,14 @@ services:
     hostname: ownsafe_db
     restart: always
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       MARIADB_ROOT_PASSWORD: ownsafe
       MARIADB_DATABASE: ownsafe
       MARIADB_USER: ownsafe
       MARIADB_PASSWORD: ownsafe
     volumes:
-      - /volume1/docker/ownsafe/mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
 
 volumes:
 
