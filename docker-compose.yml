@@ -41,7 +41,7 @@ services:
       MARIADB_USER: ownsafe
       MARIADB_PASSWORD: ownsafe
     volumes:
-      - ./docker/mysql:/var/lib/mysql
+      - /volume1/docker/ownsafe/mysql:/var/lib/mysql
 
 volumes:
 
