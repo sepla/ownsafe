@@ -34,7 +34,7 @@ services:
     hostname: ownsafe_db
     restart: always
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MARIADB_ROOT_PASSWORD: ownsafe
       MARIADB_DATABASE: ownsafe
