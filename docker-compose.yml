@@ -9,7 +9,7 @@ services:
       context: ./
       dockerfile: ./docker/php/Dockerfile
     volumes:
-      - ./ownsafe:/var/www/html
+      - /volume1/docker/ownsafe:/var/www/html
     depends_on:
       - mariadb
 
@@ -23,8 +23,8 @@ services:
     links:
       - php
     volumes:
-      - ./docker/nginx-conf:/etc/nginx/conf.d
-      - ./ownsafe:/var/www/html
+      - /volume1/docker/ownsafe/nginx-conf:/etc/nginx/conf.d
+      - /volume1/docker/ownsafe:/var/www/html
     depends_on:
       - php
 
