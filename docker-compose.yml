@@ -29,7 +29,7 @@ services:
       - php
 
   mariadb:
-    image: mariadb:10.9
+    image: mariadb:latest
     container_name: Ownsafe_DB
     hostname: ownsafe_db
     restart: always
