@@ -19,7 +19,7 @@ services:
     hostname: ownsafe_nginx
     restart: always
     ports:
-      - 81:80
+      - 82:80
     links:
       - php
     volumes:
