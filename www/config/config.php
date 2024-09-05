@@ -21,9 +21,37 @@ $show_nohttps_message = true;
 $keySize 		= "512/32";
 $iterations 	= "21";
 
-//Mail settings
-$server = $_SERVER['SERVER_NAME'];
-$sender = "ownsafe@$server";
+// PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+require __ROOT__.'/PHPMailer/src/Exception.php';
+require __ROOT__.'/PHPMailer/src/PHPMailer.php';
+require __ROOT__.'/PHPMailer/src/SMTP.php';
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    #$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'hostUrl';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'username';                     //SMTP username
+    $mail->Password   = 'Pass1234';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    
+	$mail->setFrom('from@mymail', 'OwnSafe');
+    $mail->addReplyTo('no-reply@mymail', 'Information');
+    
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
+
 
 
 // ---------------------------------------------------------------------------
@@ -110,14 +138,25 @@ function generatePepper() {
 	return $pepper;
 }
 
+// POSTFIX Email headers
+//function sendMail($recipient,$subject,$content) {
+//	$server = $_SERVER['SERVER_NAME'];
+//	$sender = "ownsafe@$server";
+//	$header  = 'MIME-Version: 1.0'."\r\n";
+//	$header .= 'Content-type: text/html; charset=utf-8'."\r\n";
+//	$header .= 'From: '.$sender."\r\n".'Reply-To: no-replay' . "\r\n".'X-Mailer: PHP/' . phpversion();
+//	mail($recipient, $subject, $content, $header);
+//}
+
 // Email headers
 function sendMail($recipient,$subject,$content) {
-	global $server;
-	global $sender;
-	$header  = 'MIME-Version: 1.0'."\r\n";
-	$header .= 'Content-type: text/html; charset=utf-8'."\r\n";
-	$header .= 'From: '.$sender."\r\n".'Reply-To: no-replay' . "\r\n".'X-Mailer: PHP/' . phpversion();
-	mail($recipient, $subject, $content, $header);
+	global $mail;
+	$mail->isHTML(true);               //Set email format to HTML
+    $mail->addAddress($recipient);     //Add a recipient, Name is optional
+    $mail->Subject = $subject;
+    $mail->Body    = $content;
+    $mail->AltBody = $content;
+	$mail->send();
 }
 
 // Email templates

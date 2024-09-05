@@ -90,17 +90,37 @@ if (isset($_REQUEST['update'])) {
             $sql = "ALTER TABLE ".$_SESSION['db_userTable']." ADD `protocollength` int(11) NOT NULL DEFAULT '1'";
 
             if ($mysqli->query($sql) === TRUE) {
-                echo "<br><br>Update OK.";
+                echo "<br><br>Update 2 OK.";
             } else {
                 $dbErrorString .= "Error creating table ".$_SESSION['db_userTable'].": " . $mysqli->error . "<br>";
                 echo '<script>console.log("'.$dbErrorString.'")</script>';
                 echo "<br><br>ERROR: ".$dbErrorString;
             }
         } else {
-            echo "<br><br>Update already implemented";
+            echo "<br><br>Update 1 already implemented";
+        }
+    }
+    $result = $mysqli->query("SHOW COLUMNS FROM ".$_SESSION['db_recordsTable']." LIKE 'counter'");
+	if ($result!==FALSE) {
+        $num_row = $result->num_rows;
+        if ($num_row == 0) {
+            $sql = "ALTER TABLE ".$_SESSION['db_recordsTable']." ADD `counter` INT NOT NULL AFTER `iv`;";
+
+            if ($mysqli->query($sql) === TRUE) {
+                echo "<br><br>Update 2 OK.";
+            } else {
+                $dbErrorString .= "Error creating table ".$_SESSION['db_recordsTable'].": " . $mysqli->error . "<br>";
+                echo '<script>console.log("'.$dbErrorString.'")</script>';
+                echo "<br><br>ERROR: ".$dbErrorString;
+            }
+        } else {
+            echo "<br><br>Update 2 already implemented";
         }
     }
 }
+
+
+//ALTER TABLE `ownsafe_records` ADD `counter` INT NOT NULL AFTER `iv`;
 ?>
 <br>
 </body>

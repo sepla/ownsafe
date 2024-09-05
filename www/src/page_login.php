@@ -47,8 +47,9 @@ echo '<script>sessionStorage.setItem("keySizeValue", "'.$_SESSION['keySizeValue'
 							<label for="log_password" class="smallerFont"><?php echo getTXT(106); ?></label>
 							<input type="password" value="" name="log_password" id="log_password" placeholder="<?php echo getTXT(106); ?>" tabindex="2">
 					</fieldset>
+					<br/><br/>
 			</form> 
-				
+			
 			<div data-role="popup" id="log_loginFailed" class="ui-content" data-overlay-theme="b"  data-theme="a">
 				<a class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-left popupErrorIcon"><?php echo getTXT(107); ?></a>
 				<h3><?php echo getTXT(108); ?></h3>

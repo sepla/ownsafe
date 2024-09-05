@@ -6,16 +6,10 @@ services:
     hostname: ownsafe_php
     restart: always
     build:
-        context: ./
-        dockerfile: ./docker/Dockerfile
-    command:
-      - bash
-      - -c
-      - >
-        ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts;
-        git clone https://github.com/sepla/ownsafe.git;
+        context: ./docker/php
+        dockerfile: Dockerfile
     volumes:
-      - ./:/var/www/html
+      - ./www:/var/www/html
     depends_on:
       - mariadb
 
@@ -30,13 +24,12 @@ services:
       - php
     volumes:
       - ./docker/nginx-conf:/etc/nginx/conf.d
-    volumes:
-      - ./www/ownsafe:/var/www/html
+      - ./www:/var/www/html
     depends_on:
       - php
 
   mariadb:
-    image: mariadb:latest
+    image: mariadb:10.9
     container_name: Ownsafe_DB
     hostname: ownsafe_db
     restart: always

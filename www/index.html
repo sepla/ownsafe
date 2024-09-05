@@ -33,14 +33,20 @@ If not, see http://www.gnu.org/licenses/.
 	<meta name="format-detection" content="telephone=yes">
 	<meta name="msapplication-tap-highlight" content="no">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-	<meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-eval' 'unsafe-inline'; connect-src *; img-src *; style-src * 'unsafe-inline'; media-src *">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data:; script-src 'self' 'unsafe-eval' 'unsafe-inline'; connect-src * data:; img-src * data:; style-src 'self' 'unsafe-inline'; media-src * data:">
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="pragma" content="no-cache" />
 	<link rel="stylesheet"type="text/css" href="css/index.css" /> 
 	<link rel="stylesheet" href="css/ownsafe.css" />
 	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="icon" href="css/lock-black.png" />
-	<script src="js/jquery.mobile-1.4.5/jquery-2.1.1.min.js"></script>
+	<script>
+	  window.onerror = function(error, url, line) {
+      alert("ERR:"+error+" URL:"+url+" L:"+line);
+
+    };
+	</script>
+  <script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="js/CryptoJS/components/core-min.js"></script>
  	<script src="js/CryptoJS/rollups/pbkdf2.js"></script>
@@ -50,17 +56,32 @@ If not, see http://www.gnu.org/licenses/.
 	<script src="js/login.js"></script>
 	<script src="js/content.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript">
+	  var darkMode = false;
+	  if (localStorage.getItem('uiDarkMode') && localStorage.getItem("uiDarkMode")=="true") darkMode = true;
+	</script>
 </head>
 <body id="body">
 	<div class="headertask"></div>
-  <div data-role="page" class="ui-page" id="login" data-theme="a"  style="color:grey"></div>
-	<div data-role="page" class="ui-page" id="index" data-theme="a">
+  <div data-role="page" class="ui-page" id="login" data-theme="b"></div>
+  <script>if (darkMode==true) {
+    document.getElementById("login").setAttribute("data-theme", "b");
+    Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
+    el.setAttribute("data-theme", "b");
+});
+    } else {
+    Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
+    el.setAttribute("data-theme", "a");
+});
+    
+    }</script>
+	<div data-role="page" class="ui-page" id="index">
 			<div id="waitcontainer" class="center">
 							<p id="wait" class="center"><img id="waitimage" src="js/jquery.mobile-1.4.5/images/ajax-loader2.gif"></p>
 			</div>
 
 			<div id="init" data-inline="true" hidden>
-			<div data-role="panel" class="ui-panel" id="settingsPanel" data-theme="b" data-display="overlay" data-position-fixed="true">
+			<div data-role="panel" class="ui-panel" id="settingsPanel" data-display="overlay" data-position-fixed="true">
 					<h3 class="center">Menu</h3>
 					<div id="menu_index_buttons">
 							<a data-role="button" data-rel="close" href="#index" id="index_settings_button" class="ui-btn ui-icon-gear ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline index_settings_button menuButtonStyle">Settings</a>
@@ -71,16 +92,17 @@ If not, see http://www.gnu.org/licenses/.
 							<p class="menuFooter" id="menu_indexfooter_text"></p>
 							<p class="menuFooter" id="licence_footer_text">Copyright &copy; 2015<br>
 							<a href="#" onclick="window.open('http://www.gnu.org/licenses/', '_system');" class="ui-btn ui-mini ui-corner-all ui-btn-inline smallerFont">GNU General Public License</a></p>
+							<p class="menuFooter" id="consolew"></p>
 					</div>
 			</div> 
 
-			<div data-role="header" data-theme="b" data-position="fixed" id="indexHeader" data-tap-toggle="false">
+			<div data-role="header" data-position="fixed" id="indexHeader" data-tap-toggle="false">
 
 				<a href="#settingsPanel" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all buttonStyle"></a>			
 				<h3>OwnSafe</h3>
 				<button type="submit" form="mainform" class="ui-btn ui-btn-right ui-corner-all buttonStyle" id="submit_button" value="Submit" tabindex="3" >Submit</button>
 			</div>
-			<div data-role="main" class="ui-content" data-theme="a" id="main">
+			<div data-role="main" class="ui-content" id="main">
 					<form id="index_settings_form" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
 						<p id="changepass_headline" class="ui-btn-icon-top ui-shadow-icon ui-icon-gear titleText">Settings</p>
 							<div id="error" class="dbErrorDescription"></div>
@@ -102,28 +124,28 @@ If not, see http://www.gnu.org/licenses/.
 
 						</form>
 			</div>		
-			<div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false" id="indexFooter">
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" id="indexFooter">
 				<h5 class="center" id="footer_init_text"></h5>
 			</div>
 		</div>
 	</div>
 
-	<div data-role="page" class="ui-page" id="signup" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="content" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="abouthelp" data-theme="a"></div>
-    <div data-role="page" class="ui-page" id="loginprotocol" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="addentry" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="changepass" data-theme="a"></div>
-    <div data-role="page" class="ui-page" id="eiswitch" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="export" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="import" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="profile" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="settings" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="showentry" data-theme="a"></div>
-	<div data-role="page" class="ui-page" id="logout" data-theme="a"></div>
+	<div data-role="page" class="ui-page" id="signup" ></div>
+	<div data-role="page" class="ui-page" id="content" ></div>
+	<div data-role="page" class="ui-page" id="abouthelp" ></div>
+    <div data-role="page" class="ui-page" id="loginprotocol" ></div>
+	<div data-role="page" class="ui-page" id="addentry" ></div>
+	<div data-role="page" class="ui-page" id="changepass" ></div>
+    <div data-role="page" class="ui-page" id="eiswitch" ></div>
+	<div data-role="page" class="ui-page" id="export" ></div>
+	<div data-role="page" class="ui-page" id="import" ></div>
+	<div data-role="page" class="ui-page" id="profile" ></div>
+	<div data-role="page" class="ui-page" id="settings" ></div>
+	<div data-role="page" class="ui-page" id="showentry" ></div>
+	<div data-role="page" class="ui-page" id="logout" ></div>
 	
-	<div data-role="page" class="ui-page" id="install" data-theme="a">
-		<div data-role="panel" class="ui-panel" id="installPanel" data-theme="b" data-display="overlay" data-position-fixed="true">
+	<div data-role="page" class="ui-page" id="install" >
+		<div data-role="panel" class="ui-panel" id="installPanel" data-display="overlay" data-position-fixed="true">
 			<h3 class="center">Menu</h3>
 			<div id="menu_index_buttons">
 					<a data-role="button" data-rel="close" href="#index" id="index_settings_button" class="ui-btn ui-icon-gear ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline index_settings_button menuButtonStyle">Settings</a>
@@ -134,14 +156,15 @@ If not, see http://www.gnu.org/licenses/.
 					<p class="menuFooter" id="menu_indexfooter_text"></p>
 					<p class="menuFooter" id="licence_footer_text">Copyright &copy; 2018<br>
 	<a href="#" onclick="window.open('http://www.gnu.org/licenses/', '_system');" class="ui-btn ui-mini ui-corner-all ui-btn-inline smallerFont">GNU General Public License</a></p>
+			    <p class="menuFooter" id="consolew"></p>
 			</div>
 		</div>
 
-		<div data-role="header" data-theme="b" data-position="fixed" id="installHeader" data-tap-toggle="false">
+		<div data-role="header" data-position="fixed" id="installHeader" data-tap-toggle="false">
 			<a href="#installPanel" id="installPanel_a" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all buttonStyle"></a>
 			<h3>OwnSafe</h3>
 		</div>
-		<div data-role="main" class="ui-content" data-theme="a" id="main">
+		<div data-role="main" class="ui-content"  id="main">
 			<div id="install_page" class="ui-body ui-body-a ui-corner-all">
 				<p id="changepass_headline" class="ui-btn-icon-top ui-shadow-icon ui-icon-arrow-d titleText">Installation</p>
 					<h4>System requirements for your own server (e.g. Raspberry Pi):</h4>
@@ -156,7 +179,7 @@ If not, see http://www.gnu.org/licenses/.
                 <br>
 					<h4>Server installation</h4>
 					<ul>
-						<li>DOWNLOAD the server application: <a href="#" onclick="window.open('https://github.com/sepla/ownsafe', '_system');" class="ui-btn ui-mini ui-corner-all ui-btn-inline">Github.com</a></li>
+						<li>DOWNLOAD the server application: <a href="#" onclick="window.open('https://github.com/splaza76/ownsafe', '_system');" class="ui-btn ui-mini ui-corner-all ui-btn-inline">Github.com</a></li>
 						<li>Unzip the files and copy the ownsafe folder to the HOME-directory of the Apache server (mostly /var/www/html)</li>
 						<li>Edit the configuration file (config.php in config directory): Enter on "DB" your values for the MySql database address, username, password and database name.<br>The application creates the necessary database tables automaticly</li>
 						<li>For testing server functionality call the application test site in your browser, http://your-server-url/ownsafe/test.php</li>
@@ -172,9 +195,24 @@ If not, see http://www.gnu.org/licenses/.
 			</div>
 		</div>
 
-		<div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false" id="installFooter">
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" id="installFooter">
 			<h5 class="center" id="footer_init_text"></h5>
 		</div>
 	</div>
+	<script>
+    (function() {
+        var exLog = console.log;
+        console.log = function(msg) {
+        exLog.apply(this, arguments);
+        document.getElementById('consolew').innerHTML = msg; 
+     }
+    //    var exErr = console.error;
+    //    console.error = function(msg) {
+    //        exErr.apply(this, arguments);
+    //        document.getElementById('consolew').innerHTML = document.getElementById('consolew').innerHTML+"<br>"+msg; 
+    //    }
+    })();
+    console.log("Console"); // calling after defining it
+  </script>	
 </body>
 </html>

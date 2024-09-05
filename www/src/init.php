@@ -10,7 +10,7 @@ If not, see http://www.gnu.org/licenses/.
 */
 
 if (session_id() != "") session_destroy();
-if (!isset($_REQUEST['test'])) session_start();
+session_start();
 define('__ROOT__', dirname(__FILE__).'/..');
 require_once(__ROOT__.'/config/config.php');
 
@@ -27,7 +27,7 @@ if (!$dbErrorString || strpos($dbErrorString, "DB connection failed")===FALSE) {
 	}
 }
 // Select database
-if (strpos($dbErrorString, "DB connection failed")===FALSE && !$mysqli->select_db ($_SESSION['db_name'])) {
+if ($dbErrorString && strpos($dbErrorString, "DB connection failed")===FALSE && !$mysqli->select_db ($_SESSION['db_name'])) {
 	$dbErrorString .= "Unable to select DB ".$_SESSION['db_name'].": " . mysql_error() . "<br>";
 	//exit;
 } else if (!$dbErrorString) {
