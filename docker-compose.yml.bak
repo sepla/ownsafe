@@ -60,7 +60,4 @@ services:
   #   depends_on:
   #      - mariadb
 
-networks:
-  network:
-    driver: bridge
-    name: ownsafe_network
+
