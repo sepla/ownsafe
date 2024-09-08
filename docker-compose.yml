@@ -63,5 +63,4 @@ services:
 networks:
   network:
     driver: bridge
-    external: true
-    name: ownsafe_network
+    attachable: true
