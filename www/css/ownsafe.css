@@ -407,6 +407,10 @@ fieldset {
 	color: red;
 }
 
+.protocol_error {
+	color: red;
+}
+
 .protocol_blocked {
 	color: blue;
 }

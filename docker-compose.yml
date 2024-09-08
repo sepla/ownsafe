@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
-    restart: always
+    #restart: no
     build:
         context: ./docker/php
         dockerfile: Dockerfile
@@ -17,11 +15,12 @@ services:
     image: nginx:latest
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
-    restart: always
+    #restart: always
     ports:
       - 81:80
+      - 444:443
     links:
-      - php
+      - 'php'
     volumes:
       - ./docker/nginx-conf:/etc/nginx/conf.d
       - ./www:/var/www/html
@@ -29,25 +28,36 @@ services:
       - php
 
   mariadb:
-    image: mariadb:10.9
+    image: mariadb:10.8
     container_name: Ownsafe_DB
     hostname: ownsafe_db
-    restart: always
+    tty: true
+    #restart: no
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MARIADB_ROOT_PASSWORD: ownsafe
       MARIADB_DATABASE: ownsafe
       MARIADB_USER: ownsafe
       MARIADB_PASSWORD: ownsafe
-    command:
-      - bash
-      - -c
-      - >
-        mkdir -p ./docker/mysql;
+    #command:
+    #  - bash
+    #  - -c
+    #  - >
+    #  -  mkdir -p ./docker/mariadb-data;
     volumes:
-      - ./docker/mysql:/var/lib/mysql
+      - ./docker/mariadb-data:/var/lib/mysql
 
-volumes:
+  #phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin:latest
+  #   container_name: Ownsafe_PHPMYADMIN
+  #   hostname: ownsafe_phpmyadmin
+     #restart: no
+  #   ports:
+  #      - 82:8080
+  #   environment:
+  #      PMA_HOST: ownsafe_db:3307
+  #   depends_on:
+  #      - mariadb
 
-  mysqldata:
+

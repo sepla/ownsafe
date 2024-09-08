@@ -54,9 +54,10 @@ else $protocollength = 1;
 							$attempt		= $row['attempt'];
 							$logincounter	= $row['logincounter'];
 
-							if ($status=="OK") $status='<span class="protocol_ok">'.$status.'</span>';
-							else if ($status=="FAILED") $status='<span class="protocol_failed">'.$status.'</span>';
-							else if ($status=="BLOCKED") $status='<span class="protocol_blocked">'.$status.'</span>';
+							if ($status=="OK") 							$status='<span class="protocol_ok">'.$status.'</span>';
+							else if ($status=="FAILED") 				$status='<span class="protocol_failed">'.$status.'</span>';
+							else if ($status=="BLOCKED") 				$status='<span class="protocol_blocked">'.$status.'</span>';
+							else if (stripos($status,"ERROR")!==FALSE) 	$status='<span class="protocol_error">'.$status.'</span>';
 
 							echo '<tr><td>'.$status.'<br>-<br>'.$date.'</td><td>'.$ip.'<br>-<br>'.$useragent.'</td><td>'.$logincounter.'<br>-<br>'.$attempt.'</td></tr>';
 							

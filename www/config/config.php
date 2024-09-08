@@ -9,7 +9,7 @@
 
 
 // mySQL SB
-$db_server 		= 'ownsafe_db';
+$db_server 		= 'ownsafe_db:3306';
 $db_user 		= 'ownsafe';
 $db_password 	= 'ownsafe';
 $db_name		= 'ownsafe';
@@ -24,8 +24,6 @@ $iterations 	= "21";
 // PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-
 require __ROOT__.'/PHPMailer/src/Exception.php';
 require __ROOT__.'/PHPMailer/src/PHPMailer.php';
 require __ROOT__.'/PHPMailer/src/SMTP.php';
@@ -35,17 +33,19 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    #$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
+    $mail->isSMTP();                                   //Send using SMTP
     $mail->Host       = 'hostUrl';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'username';                     //SMTP username
-    $mail->Password   = 'Pass1234';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-    
-	$mail->setFrom('from@mymail', 'OwnSafe');
-    $mail->addReplyTo('no-reply@mymail', 'Information');
+    $mail->Username   = 'username';                    //SMTP username
+    $mail->Password   = 'Pass1234';                    //SMTP password
+    $mail->SMTPAuth   = true;                          //Enable SMTP authentication
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;   //Enable implicit TLS encryption
+    $mail->Port       = 465;                           //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mailFrom         = 'from@mymail';	
+    $mailNoReply      = 'no-reply@mymail.com';
+	#$mail->SMTPDebug = SMTP::DEBUG_SERVER;            //Enable verbose debug output
+	
+	if (filter_var($mailFrom,    FILTER_VALIDATE_EMAIL)) $mail->setFrom($mailFrom, 'OwnSafe');
+    if (filter_var($mailNoReply, FILTER_VALIDATE_EMAIL)) $mail->addReplyTo($mailNoReply, 'Information');
     
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
@@ -53,10 +53,13 @@ try {
 
 
 
-
+// ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // Normally you don't need to do any changes below this line
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+
+
 
 // Default language - currently available values: EN, DE, PL
 $language="DE";
@@ -150,13 +153,28 @@ function generatePepper() {
 
 // Email headers
 function sendMail($recipient,$subject,$content) {
-	global $mail;
-	$mail->isHTML(true);               //Set email format to HTML
-    $mail->addAddress($recipient);     //Add a recipient, Name is optional
-    $mail->Subject = $subject;
-    $mail->Body    = $content;
-    $mail->AltBody = $content;
-	$mail->send();
+	global $mail,$mysqli;
+	try {
+		if (filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
+			$mail->isHTML(true);               //Set email format to HTML
+			$mail->addAddress($recipient);     //Add a recipient, Name is optional	
+	   	    $mail->Subject = $subject;
+			$mail->Body    = $content;
+			$mail->AltBody = $content;
+			$mail->send();
+		}
+	} catch (Exception $ex) {
+		$qry = "SELECT userid FROM ".$_SESSION['db_userTable']." WHERE email='".$recipient."'";
+		$res = $mysqli->query($qry);
+		if ($res !== false) {
+			$num_row 	= $res->num_rows;
+			if( $num_row == 1 ) {
+				$row 		= $res->fetch_assoc();
+				$userid = $row['userid'];
+				logError($userid,"MAIL ERROR",$ex);
+			}
+		} 
+	}
 }
 
 // Email templates
@@ -171,5 +189,12 @@ $email_passhint_tmpl = '<html><head><title>'.getTXT(510).'</title></head><body><
 
 $email_loginchanged_tmpl = '<html><head><title>'.getTXT(512).'</title></head><body><p>'.getTXT(500).' [username]</p><p>'.getTXT(502).'<p><h4>'.getTXT(513).'</h4><br></body></html>';
 
+
+function logError($userid, $status, $errorMessage) {
+global $mysqli;
+	$errorMessage = str_replace(["\r\n", "\n", "\r"],'',$errorMessage);
+		$qry = "INSERT INTO ".$_SESSION['db_loginTable']."(userid, date, ip, useragent, status, attempt, logincounter) VALUES ('".$userid."', '".date('Y-m-d H:i:s')."', '".getUserIP()."', '".substr($errorMessage, 0, 255)."','".$status."', '0', '0' )";
+		$res = $mysqli->query($qry);
+}
 
 ?>
