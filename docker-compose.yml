@@ -44,13 +44,13 @@ services:
       MARIADB_DATABASE: ownsafe
       MARIADB_USER: ownsafe
       MARIADB_PASSWORD: ownsafe
-    command:
-      - bash
-      - -c
-      - >
-      -  mkdir -p ./docker/mariadb-data;
+    #command:
+    #  - bash
+    #  - -c
+    #  - >
+    #  -  mkdir -p ./docker/mariadb-data;
     volumes:
-      - ./docker/mariadb-data:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
     networks:
       - net
 
@@ -69,3 +69,7 @@ services:
 networks:
   net:
     driver: bridge
+    
+    
+volumes:
+  mariadb-data:
