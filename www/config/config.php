@@ -1,7 +1,7 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-header("Access-Control-Allow-Headers: X-Requested-With");
+//header('Access-Control-Allow-Origin: *');
+//header('Access-Control-Allow-Methods: GET, POST');
+//header("Access-Control-Allow-Headers: X-Requested-With");
 
 // Copyright (C) 2015 Sebastian Plaza
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License

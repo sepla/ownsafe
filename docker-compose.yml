@@ -8,6 +8,8 @@ services:
         dockerfile: Dockerfile
     volumes:
       - ./www:/var/www/html
+    networks:
+      - net
     depends_on:
       - mariadb
 
@@ -24,6 +26,8 @@ services:
     volumes:
       - ./docker/nginx-conf:/etc/nginx/conf.d
       - ./www:/var/www/html
+    networks:
+      - net
     depends_on:
       - php
 
@@ -47,6 +51,8 @@ services:
     #  -  mkdir -p ./docker/mariadb-data;
     volumes:
       - ./docker/mariadb-data:/var/lib/mysql
+    networks:
+      - net
 
   #phpmyadmin:
   #   image: phpmyadmin/phpmyadmin:latest
@@ -61,6 +67,5 @@ services:
   #      - mariadb
 
 networks:
-  network:
+  net:
     driver: bridge
-    attachable: true
