@@ -9,7 +9,7 @@ services:
       - >
       -  git clone https://github.com/sepla/ownsafe.git;
     build:
-        context: /volume1/docker/ownsafe/docker/php
+        context: ./ownsafe/docker/php
         dockerfile: Dockerfile
     volumes:
       - ./ownsafe/www:/var/www/html
