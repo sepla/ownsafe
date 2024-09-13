@@ -4,13 +4,9 @@ services:
     hostname: ownsafe_php
     #restart: no
     command:
-      - bash
-      - -c
-      - >
-      -  git clone https://github.com/sepla/ownsafe.git;
+      - bash -c "git clone https://github.com/sepla/ownsafe.git"
     build:
-        context: ./ownsafe/docker/php
-        dockerfile: Dockerfile
+        dockerfile: ./ownsafe/docker/php/Dockerfile
     volumes:
       - ./ownsafe/www:/var/www/html
     networks:
