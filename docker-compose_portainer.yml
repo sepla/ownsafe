@@ -4,8 +4,7 @@ services:
     hostname: ownsafe_php
     #restart: no
     working_dir: /
-    command: ["bash","cd",".."]
-    command: ["bash", "-c", "git clone https://github.com/sepla/ownsafe.git ./"]
+    command: ["bash", "-c", "cd ..;git clone https://github.com/sepla/ownsafe.git ./"]
     build:
         dockerfile: ./docker/php/Dockerfile
     volumes:
