@@ -8,7 +8,7 @@ services:
     build:
         dockerfile: ./docker/php/Dockerfile
     volumes:
-      - ./ownsafe/www:/var/www/html
+      - ./ownsafe:/var/www/html
     networks:
       - net
     depends_on:
@@ -26,7 +26,7 @@ services:
       - 'php'
     volumes:
       - /ownsafe/docker/nginx-conf:/etc/nginx/conf.d
-      - /ownsafe/www:/var/www/html
+      - /ownsafe:/var/www/html
     networks:
       - net
     depends_on:
