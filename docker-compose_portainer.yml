@@ -8,7 +8,8 @@ services:
     build:
         dockerfile: ./docker/php/Dockerfile
     volumes:
-      - ./ownsafe:/var/www/html
+      - ./ownsafe:/var/www
+      - ./ownsafe/www:/var/www/html
     networks:
       - net
     depends_on:
