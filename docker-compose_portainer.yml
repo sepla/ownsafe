@@ -1,18 +1,23 @@
 services:
+  #app:
+    #volumes:
+      #- ./ownsafe:./
+  
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
     #restart: no
-    #working_dir: /
+    #working_dicommand: ["bash", "-c", "git clone https://github.com/sepla/ownsafe.git ./"]r: ./
+    command: ["bash", "-c", "git clone https://github.com/sepla/ownsafe.git ./"]
     build:
-        dockerfile: ./docker/php/Dockerfile
+      context: ./docker/php/
+      dockerfile: Dockerfile
     volumes:
       - ./ownsafe:/var/www/html
     networks:
       - net
     depends_on:
       - mariadb
-    command: ["bash", "-c", "git clone https://github.com/sepla/ownsafe.git ./"]
 
   nginx:
     image: nginx:latest
