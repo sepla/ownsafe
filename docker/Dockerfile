@@ -5,4 +5,7 @@ RUN apt-get update && \
 RUN docker-php-ext-install mysqli pdo pdo_mysql gd zip
 
 
-RUN git clone https://github.com/sepla/ownsafe.git ./src
+RUN git clone https://github.com/sepla/ownsafe.git src
+WORKDIR src
+ENTRYPOINT ['php']
+
