@@ -1,14 +1,9 @@
 <?php
-header('HTTP/1.1')
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 #header("Access-Control-Allow-Headers: X-Requested-With");
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range');
-
-
-
-
 
 // Copyright (C) 2015 Sebastian Plaza
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -94,16 +89,23 @@ $_SESSION['db_password'] 	= $db_password;
 $_SESSION['db_name'] 		= $db_name;
 
 
-// Create DB connection
-$mysqli = new mysqli($_SESSION['db_server'],$_SESSION['db_user'],$_SESSION['db_password']);
 
-
-// Check DB connection
 $dbErrorString = null;
-if ($mysqli->connect_error) {
-    $dbErrorString .= "DB connection failed: " . $mysqli->connect_error . "<br>";
-} else if (!$mysqli->select_db ($_SESSION['db_name'])) {
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+try {
+	// Create DB connection
+	$mysqli = new mysqli($_SESSION['db_server'],$_SESSION['db_user'],$_SESSION['db_password']);
+	// Check DB connection
+	$dbErrorString = null;
+	if ($mysqli->connect_error) {
+		$dbErrorString .= "DB connection failed: " . $mysqli->connect_error . "<br>";
+	} else if (!$mysqli->select_db ($_SESSION['db_name'])) {
 		$dbErrorString .= "Unable to select DB ".$_SESSION['db_name']."<br>";
+	}
+} catch (mysqli_sql_exception $e) {
+	$dbErrorString .= "Unable to connect to DB server ".$_SESSION['db_server']."<br>";
+	$dbErrorString .= "<br>".$e->getMessage()."<br>";
 }
 
 
