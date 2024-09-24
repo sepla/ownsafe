@@ -4,27 +4,32 @@ services:
     hostname: ownsafe_php
     #restart: no
     build:
-        context: ./docker/php
-        dockerfile: Dockerfile
+        context: https://github.com/sepla/ownsafe.git
+        dockerfile: ./docker/Dockerfile
     volumes:
       - ./www:/var/www/html
     networks:
       - net
     depends_on:
       - mariadb
+    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe']
 
   nginx:
     image: nginx:latest
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
+    #build:
+    #    context: https://github.com/sepla/ownsafe.git
+    #    dockerfile: ./docker/DockerfileNGINX
     #restart: always
+    #command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./']
     ports:
       - 81:80
       - 444:443
     links:
       - 'php'
     volumes:
-      - ./docker/nginx-conf:/etc/nginx/conf.d
+      - ./www/docker/nginx-conf:/etc/nginx/conf.d
       - ./www:/var/www/html
     networks:
       - net
@@ -71,6 +76,6 @@ services:
 networks:
   net:
     driver: bridge
-    
+
 volumes:
   mariadb-data:
