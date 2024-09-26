@@ -6,6 +6,8 @@ RUN apt-get update && \
 RUN mkdir -p /var/log/nginx
 RUN touch /var/log/nginx/access.log
 RUN touch /var/log/nginx/error.log
+RUN chmod 664 /var/log/nginx/access.log
+RUN chmod 664 /var/log/nginx/error.log
 #RUN git clone https://github.com/sepla/ownsafe.git /src
 #WORKDIR /src
 #RUN cp /src/* /var/www/html -R

@@ -22,6 +22,7 @@ services:
       - net
     depends_on:
       - mariadb
+    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/phpinfo.php']
 
   nginx:
     container_name: Ownsafe_NGINX
@@ -29,7 +30,6 @@ services:
     build:
         context: https://github.com/sepla/ownsafe.git
         dockerfile: ./docker/nginx/Dockerfile
-    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f /var/log/nginx/access.log']
     ports:
       - 81:80
       - 444:443
