@@ -1,9 +1,9 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-#header("Access-Control-Allow-Headers: X-Requested-With");
-header('Access-Control-Allow-Credentials: true');
-header('Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range');
+//header('Access-Control-Allow-Origin: *');
+//header('Access-Control-Allow-Methods: GET, POST');
+//header("Access-Control-Allow-Headers: X-Requested-With");
+//header('Access-Control-Allow-Credentials: true');
+//header('Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range');
 
 // Copyright (C) 2015 Sebastian Plaza
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
