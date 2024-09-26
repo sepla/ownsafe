@@ -33,7 +33,7 @@ services:
       - net
     depends_on:
       - php
-        
+
   mariadb:
     image: mariadb:10.8
     container_name: Ownsafe_DB
