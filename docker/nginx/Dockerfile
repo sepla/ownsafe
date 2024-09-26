@@ -9,7 +9,7 @@ RUN mkdir -p /var/log/nginx
 #RUN chmod 664 /var/log/nginx/access.log
 #RUN chmod 664 /var/log/nginx/error.log
 
-VOLUME /var/log/nginx
+#VOLUME /var/log/nginx
 
 
 #RUN git clone https://github.com/sepla/ownsafe.git /src
