@@ -1,41 +1,48 @@
 services:
+#  ownsafe:
+#    build:
+#        context: https://github.com/sepla/ownsafe.git
+#        dockerfile: ./docker/ownsafe/Dockerfile
+#    #command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./']
+#    networks:
+#      - net 
+#    depends_on:
+#      - nginx
+  
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
     #restart: no
     build:
         context: https://github.com/sepla/ownsafe.git
-        dockerfile: ./docker/Dockerfile
+        dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./www:/var/www/html
     networks:
       - net
     depends_on:
       - mariadb
-    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe']
 
   nginx:
-    image: nginx:latest
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
-    #build:
-    #    context: https://github.com/sepla/ownsafe.git
-    #    dockerfile: ./docker/DockerfileNGINX
-    #restart: always
-    #command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./']
+    build:
+        context: https://github.com/sepla/ownsafe.git
+        dockerfile: ./docker/nginx/Dockerfile
     ports:
       - 81:80
       - 444:443
     links:
       - 'php'
     volumes:
-      - ./www/docker/nginx-conf:/etc/nginx/conf.d
+      - ./www/ownsafe/docker/nginx-conf:/etc/nginx/conf.d
       - ./www:/var/www/html
     networks:
       - net
     depends_on:
       - php
-
+    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f /var/log/nginx/access.log']
+    
   mariadb:
     image: mariadb:10.8
     container_name: Ownsafe_DB
