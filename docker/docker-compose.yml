@@ -22,7 +22,7 @@ services:
       - net
     depends_on:
       - mariadb
-    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/phpinfo.php']
+    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/index2.html']
 
   nginx:
     container_name: Ownsafe_NGINX
