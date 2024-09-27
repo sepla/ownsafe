@@ -17,7 +17,7 @@
 // mySQL SB
 $db_server 		= 'ownsafe_db:3306';
 $db_user 		= 'ownsafe';
-$db_password 	= 'ownsafe';
+$db_password 		= 'ownsafe';
 $db_name		= 'ownsafe';
 
 // Set to false if you do not want to be notified about unsecure connection

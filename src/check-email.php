@@ -23,15 +23,17 @@ if ($email != null) {
 	$res 		= $mysqli->query($qry);
 	$num_row 	= $res->num_rows;
 
-	if ($res !== false) {
+	if ($res !== false && $num_row) {
 		$row 		= $res->fetch_assoc();
-		$userid = $row['userid'];
-		if( $num_row == 0 ) {
-			$output = array('status' => true, 'message' => 'free');
-		} else if ($userid == $_SESSION['uid']) {
-			$output = array('status' => true, 'message' => 'owner');
-		} else {
-			$output = array('status' => true, 'message' => 'eexists');
+		if ($row) {
+			$userid = $row['userid'];
+			if( $num_row == 0 ) {
+				$output = array('status' => true, 'message' => 'free');
+			} else if ($userid == $_SESSION['uid']) {
+				$output = array('status' => true, 'message' => 'owner');
+			} else {
+				$output = array('status' => true, 'message' => 'eexists');
+			}
 		}
 	} else $output = array('status' => false, 'message' => 'db_error');
 

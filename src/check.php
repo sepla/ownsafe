@@ -42,6 +42,7 @@ if ($res !== false) {
 		
 		if ($status != "blocked") {
 
+			if (!$lastlogin) $lastlogin = "01.01.70 01:00";
 			$lastlogin = date("d.m.y H:i", strtotime($lastlogin));
 			if ($lastlogin == "01.01.70 01:00") $lastlogin = date("d.m.y H:i");
 			$lastfailedlogin = date("d.m.y H:i", strtotime($lastfailedlogin));
@@ -141,7 +142,10 @@ if ($res !== false) {
 			if 		($current_loginfailure>19) 	$blocktime = 240;
 			else if ($current_loginfailure>9) 	$blocktime = 60;
 			else 								$blocktime = 15;
-
+		
+		
+			if (!$lastfailedlogin) $lastfailedlogin = "00.00.00 00:00";
+			
 			$starttime = strtotime($lastfailedlogin);
 			$endtime = strtotime(date("Y-m-d H:i:s"));
 			$timediff = intval(($endtime - $starttime)/60);
