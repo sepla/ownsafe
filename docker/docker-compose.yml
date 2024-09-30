@@ -9,8 +9,6 @@ services:
         dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./www:/var/www/html
-    networks:
-      - net
     depends_on:
       - mariadb
     command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/index2.html']
@@ -29,8 +27,6 @@ services:
     volumes:
       - ./www/ownsafe/docker/nginx-conf:/etc/nginx/conf.d
       - ./www:/var/www/html
-    networks:
-      - net
     depends_on:
       - php
 
@@ -54,8 +50,6 @@ services:
     #  -  mkdir -p ./docker/mariadb-data;
     volumes:
       - mariadb-data:/var/lib/mysql
-    networks:
-      - net
 
   #phpmyadmin:
   #   image: phpmyadmin/phpmyadmin:latest
@@ -70,10 +64,6 @@ services:
    #    - net
    #  depends_on:
    #    - mariadb
-
-networks:
-  net:
-    driver: bridge
 
 volumes:
   mariadb-data:
