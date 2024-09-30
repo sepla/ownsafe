@@ -9,6 +9,8 @@ services:
         dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./www:/var/www/html
+    ports:
+      - :9000
     depends_on:
       - mariadb
     command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/index.html']
