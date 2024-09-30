@@ -65,24 +65,24 @@ If not, see http://www.gnu.org/licenses/.
 	<div class="headertask"></div>
   <div data-role="page" class="ui-page" id="login" data-theme="b"></div>
   <script>
-    //if (darkMode==true) {
-    //document.getElementById("login").setAttribute("data-theme", "b");
-    //Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
-    //el.setAttribute("data-theme", "b");
-});
+    if (darkMode==true) {
+      document.getElementById("login").setAttribute("data-theme", "b");
+      Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
+        el.setAttribute("data-theme", "b");
+      });
     } else {
-    //Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
-    //el.setAttribute("data-theme", "a");
-});
-    
-    }</script>
+      Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
+        el.setAttribute("data-theme", "a");
+      });
+    }
+</script>
 	<div data-role="page" class="ui-page" id="index">
 			<div id="waitcontainer" class="center">
 							<p id="wait" class="center"><img id="waitimage" src="js/jquery.mobile-1.4.5/images/ajax-loader2.gif"></p>
 			</div>
 
 			<div id="init" data-inline="true" hidden>
-			<div data-role="panel" class="ui-panel" id="settingsPanel" data-display="overlay" data-position-fixed="true">
+			<div data-role="panel" class="ui-panel" id="settingsPanel" data-display="overlay" data-position-fixed="true" data-theme="b">
 					<h3 class="center">Menu</h3>
 					<div id="menu_index_buttons">
 							<a data-role="button" data-rel="close" href="#index" id="index_settings_button" class="ui-btn ui-icon-gear ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline index_settings_button menuButtonStyle">Settings</a>
@@ -97,7 +97,7 @@ If not, see http://www.gnu.org/licenses/.
 					</div>
 			</div> 
 
-			<div data-role="header" data-position="fixed" id="indexHeader" data-tap-toggle="false" >
+			<div data-role="header" data-position="fixed" id="indexHeader" data-tap-toggle="false" data-theme="b">
 
 				<a href="#settingsPanel" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all buttonStyle"></a>			
 				<h3>OwnSafe</h3>
@@ -161,7 +161,7 @@ If not, see http://www.gnu.org/licenses/.
 			</div>
 		</div>
 
-		<div data-role="header" data-position="fixed" id="installHeader" data-tap-toggle="false">
+		<div data-role="header" data-position="fixed" id="installHeader" data-tap-toggle="false" data-theme="b">
 			<a href="#installPanel" id="installPanel_a" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all buttonStyle"></a>
 			<h3>OwnSafe</h3>
 		</div>
