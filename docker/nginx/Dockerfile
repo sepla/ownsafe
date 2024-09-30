@@ -1,7 +1,7 @@
 FROM nginx:latest
 
 RUN apt-get update && \
-    apt-get install -y zip libzip-dev libpng-dev git net-tools nano
+    apt-get install -y zip libzip-dev libpng-dev git net-tools
 
 RUN mkdir -p /var/log/nginx
 #RUN touch /var/log/nginx/ownsafe-access.log
