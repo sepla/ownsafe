@@ -64,14 +64,15 @@ If not, see http://www.gnu.org/licenses/.
 <body id="body">
 	<div class="headertask"></div>
   <div data-role="page" class="ui-page" id="login" data-theme="b"></div>
-  <script>if (darkMode==true) {
-    document.getElementById("login").setAttribute("data-theme", "b");
-    Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
-    el.setAttribute("data-theme", "b");
+  <script>
+    //if (darkMode==true) {
+    //document.getElementById("login").setAttribute("data-theme", "b");
+    //Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
+    //el.setAttribute("data-theme", "b");
 });
     } else {
-    Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
-    el.setAttribute("data-theme", "a");
+    //Array.prototype.forEach.call(document.getElementsByTagName("*"), function (el) {
+    //el.setAttribute("data-theme", "a");
 });
     
     }</script>
@@ -96,11 +97,11 @@ If not, see http://www.gnu.org/licenses/.
 					</div>
 			</div> 
 
-			<div data-role="header" data-position="fixed" id="indexHeader" data-tap-toggle="false">
+			<div data-role="header" data-position="fixed" id="indexHeader" data-tap-toggle="false" >
 
 				<a href="#settingsPanel" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all buttonStyle"></a>			
 				<h3>OwnSafe</h3>
-				<button type="submit" form="mainform" class="ui-btn ui-btn-right ui-corner-all buttonStyle" data-theme="b" id="submit_button" value="Submit" tabindex="3" >Submit</button>
+				<button type="submit" form="mainform" class="ui-btn ui-btn-right ui-corner-all buttonStyle" id="submit_button" value="Submit" tabindex="3" >Submit</button>
 			</div>
 			<div data-role="main" class="ui-content" id="main">
 					<form id="index_settings_form" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
