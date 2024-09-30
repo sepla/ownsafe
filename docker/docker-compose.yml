@@ -11,7 +11,7 @@ services:
       - ./www:/var/www/html
     depends_on:
       - mariadb
-    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/index2.html']
+    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/index.html']
 
   nginx:
     container_name: Ownsafe_NGINX

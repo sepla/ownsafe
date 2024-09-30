@@ -1,37 +1,34 @@
 services:
 
- nginx:
-    image: nginx:latest
-    container_name: Ownsafe_NGINX
-    hostname: ownsafe_nginx
-    #restart: always
-    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git /var/www/html']
-    ports:
-      - 81:80
-      - 444:443
-    links:
-      - 'php'
-    volumes:
-      - ./ownsafe/docker/nginx-conf:/etc/nginx/conf.d
-      - ./ownsafe:/var/www/html
-    networks:
-      - net
-    depends_on:
-      - php
-
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
     #restart: no
     build:
-        context: ./ownsafe/docker/php
-        dockerfile: Dockerfile
+        context: https://github.com/sepla/ownsafe.git
+        dockerfile: ./docker/php/Dockerfile
     volumes:
-      - ./ownsafe:/var/www/html
-    networks:
-      - net
+      - ./www:/var/www/html
     depends_on:
       - mariadb
+    command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe; tail -f ./ownsafe/index.html']
+
+  nginx:
+    container_name: Ownsafe_NGINX
+    hostname: ownsafe_nginx
+    build:
+        context: https://github.com/sepla/ownsafe.git
+        dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - 81:80
+      - 444:443
+    links:
+      - php
+    volumes:
+      - ./www/ownsafe/docker/nginx-conf:/etc/nginx/conf.d
+      - ./www:/var/www/html
+    depends_on:
+      - php
 
   mariadb:
     image: mariadb:10.8
@@ -53,8 +50,6 @@ services:
     #  -  mkdir -p ./docker/mariadb-data;
     volumes:
       - mariadb-data:/var/lib/mysql
-    networks:
-      - net
 
   #phpmyadmin:
   #   image: phpmyadmin/phpmyadmin:latest
@@ -70,9 +65,5 @@ services:
    #  depends_on:
    #    - mariadb
 
-networks:
-  net:
-    driver: bridge
-    
 volumes:
   mariadb-data:
