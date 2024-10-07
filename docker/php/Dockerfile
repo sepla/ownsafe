@@ -1,8 +1,8 @@
 FROM php:8.1-fpm
 
+# Installing dependencies for the PHP modules
 RUN apt-get update && \
-    apt-get install -y zip libzip-dev libpng-dev git
-    
-RUN docker-php-ext-install mysqli pdo pdo_mysql gd zip
+    apt-get install -y zip curl libcurl3-dev libzip-dev libpng-dev libxml2-dev git
 
-
+# Installing additional PHP modules
+RUN docker-php-ext-install curl gd mysqli pdo pdo_mysql xml
