@@ -6,13 +6,14 @@ services:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
     build:
-      #context: https://github.com/sepla/ownsafe.gitsafe_PHP>Logs
-      #dockerfile: ./docker/php/Dockerfile
-      context: .
-      dockerfile: php/Dockerfile
+      context: https://github.com/sepla/ownsafe.git
+      dockerfile: ./docker/php/Dockerfile
+      #context: .
+      #dockerfile: php/Dockerfile
     volumes:
       - '../www:/var/www/html'
-      - './php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+      - '../docker:/var/www'
+      - '../docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
        #entrypoint: [ "bash", "-c", "sleep 10 && mongo --host mongo:27017 --eval 'rs.initiate()'"] 
@@ -24,17 +25,17 @@ services:
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
     build:
-        #context: https://github.com/sepla/ownsafe.git
-        #dockerfile: ./docker/nginx/Dockerfile
-        context: .
-        dockerfile: nginx/Dockerfile
+        context: https://github.com/sepla/ownsafe.git
+        dockerfile: ./docker/nginx/Dockerfile
+        #context: .
+        #dockerfile: nginx/Dockerfile
     ports:
       - 1234:80
     links:
       - 'php'
     volumes:
       - '../www:/var/www/html'
-      - './nginx-conf:/etc/nginx/conf.d'
+      - '../docker/nginx-conf:/etc/nginx/conf.d'
     depends_on:
       - 'php'
     #entrypoint: sh -c "/install-app.sh & exec /docker-entrypoint.sh nginx"
