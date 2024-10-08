@@ -1,41 +1,47 @@
+# Services
 services:
 
+  # PHP FPM Service
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
-    #restart: no
     build:
-        context: https://github.com/sepla/ownsafe.git
-        dockerfile: ./docker/php/Dockerfile
+      #context: https://github.com/sepla/ownsafe.gitsafe_PHP>Logs
+      #dockerfile: ./docker/php/Dockerfile
+      context: .
+      dockerfile: php/Dockerfile
     volumes:
-      - '../:/var/www/html'
-      - './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
-    #expose:  
-    #  - 9000
+      - '../www:/var/www/html'
+      - './php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
-    #command: ['bash','-c','git clone https://github.com/sepla/ownsafe.git ./ownsafe']
-    #tty: true
-
+       #entrypoint: [ "bash", "-c", "sleep 10 && mongo --host mongo:27017 --eval 'rs.initiate()'"] 
+    #command: ['bash','-c','cp ./www.bak/index* ../www; pwd; tail -f ./index.html']
+    tty: true 
+     
+  # Nginx Service
   nginx:
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
     build:
-        context: https://github.com/sepla/ownsafe.git
-        dockerfile: ./docker/nginx/Dockerfile
+        #context: https://github.com/sepla/ownsafe.git
+        #dockerfile: ./docker/nginx/Dockerfile
+        context: .
+        dockerfile: nginx/Dockerfile
     ports:
-      - 81:80
-      - 444:443
+      - 1234:80
     links:
-      - php
+      - 'php'
     volumes:
-      - ./www/ownsafe/docker/nginx-conf:/etc/nginx/conf.d
-      - ./www:/var/www/html
+      - '../www:/var/www/html'
+      - './nginx-conf:/etc/nginx/conf.d'
     depends_on:
-      - php
-
+      - 'php'
+    #entrypoint: sh -c "/install-app.sh & exec /docker-entrypoint.sh nginx"
+  
+  # MariaDB Service
   mariadb:
-    image: mariadb:10.8
+    image: mariadb:10.9
     container_name: Ownsafe_DB
     hostname: ownsafe_db
     tty: true
@@ -47,27 +53,10 @@ services:
       MARIADB_DATABASE: ownsafe
       MARIADB_USER: ownsafe
       MARIADB_PASSWORD: ownsafe
-    #command:
-    #  - bash
-    #  - -c
-    #  - >
-    #  -  mkdir -p ./docker/mariadb-data;
     volumes:
-      - mariadb-data:/var/lib/mysql
+      - ./mariadb-data:/var/lib/mysql
 
-  #phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin:latest
-  #   container_name: Ownsafe_PHPMYADMIN
-  #   hostname: ownsafe_phpmyadmin
-     #restart: no
-   #  ports:
-   #    - 82:8080
-   #  environment:
-   #     PMA_HOST: ownsafe_db
-   #  networks:
-   #    - net
-   #  depends_on:
-   #    - mariadb
 
+# Volumes
 volumes:
   mariadb-data:
