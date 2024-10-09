@@ -1,9 +1,9 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
+#header('Access-Control-Allow-Origin: *');
+#header('Access-Control-Allow-Methods: GET, POST');
 #header("Access-Control-Allow-Headers: X-Requested-With");
-header('Access-Control-Allow-Credentials: true');
-header('Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range');
+#header('Access-Control-Allow-Credentials: true');
+#header('Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range');
 
 // Copyright (C) 2015 Sebastian Plaza
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -17,7 +17,7 @@ header('Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-
 // mySQL SB
 $db_server 		= 'ownsafe_db:3306';
 $db_user 		= 'ownsafe';
-$db_password 		= 'ownsafe';
+$db_password 	= 'ownsafe';
 $db_name		= 'ownsafe';
 
 // Set to false if you do not want to be notified about unsecure connection
@@ -106,6 +106,7 @@ try {
 } catch (mysqli_sql_exception $e) {
 	$dbErrorString .= "Unable to connect to DB server ".$_SESSION['db_server']."<br>";
 	$dbErrorString .= "<br>".$e->getMessage()."<br>";
+	echo $dbErrorString;
 }
 
 
