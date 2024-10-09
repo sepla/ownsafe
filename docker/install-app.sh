@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo "Starting app installation"
 cd /
 cp -r /ownsafe/www/* /var/www/html
