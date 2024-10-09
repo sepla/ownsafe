@@ -9,8 +9,8 @@ services:
       context: https://github.com/sepla/ownsafe.git
       dockerfile: ./docker/php/Dockerfile
     volumes:
-      - './www:/var/www/html'
-      - './docker/nginx-conf:/docker/nginx-conf'
+      - './www-data:/var/www/html'
+      - './docker-data:/docker/nginx-conf'
       #- './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
@@ -28,8 +28,8 @@ services:
     links:
       - 'php'
     volumes:
-      - './www:/var/www/html'
-      - './docker/nginx-conf:/etc/nginx/conf.d'
+      - './www-data:/var/www/html'
+      - './docker-data/nginx-conf:/etc/nginx/conf.d'
     depends_on:
       - 'php'
   
@@ -54,3 +54,5 @@ services:
 # Volumes
 volumes:
   mariadb-data:
+  www-data:
+  docker-data:
