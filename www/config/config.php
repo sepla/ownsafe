@@ -90,18 +90,24 @@ $_SESSION['db_name'] 		= $db_name;
 
 
 
-$dbErrorString = null;
+$dbErrorString=FALSE;
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try {
 	// Create DB connection
 	$mysqli = new mysqli($_SESSION['db_server'],$_SESSION['db_user'],$_SESSION['db_password']);
 	// Check DB connection
-	$dbErrorString = null;
 	if ($mysqli->connect_error) {
 		$dbErrorString .= "DB connection failed: " . $mysqli->connect_error . "<br>";
+		echo $dbErrorString;
 	} else if (!$mysqli->select_db ($_SESSION['db_name'])) {
-		$dbErrorString .= "Unable to select DB ".$_SESSION['db_name']."<br>";
+		$sql = "CREATE DATABASE IF NOT EXISTS ".$_SESSION['db_name'];
+		if ($mysqli->query($sql) === TRUE) {
+			$dbErrorString=FALSE;
+		} else {
+			$dbErrorString .= "Unable to select DB ".$_SESSION['db_name']."<br>";
+			echo $dbErrorString;
+		}
 	}
 } catch (mysqli_sql_exception $e) {
 	$dbErrorString .= "Unable to connect to DB server ".$_SESSION['db_server']."<br>";

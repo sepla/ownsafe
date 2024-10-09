@@ -15,22 +15,24 @@ define('__ROOT__', dirname(__FILE__).'/..');
 require_once(__ROOT__.'/config/config.php');
 
 // Create database
-if (!$dbErrorString || strpos($dbErrorString, "DB connection failed")===FALSE) {
+if ($dbErrorString!==FALSE || strpos($dbErrorString, "DB connection failed")===FALSE) {
 	if (!$mysqli->select_db ($_SESSION['db_name'])) {
 
 		$sql = "CREATE DATABASE IF NOT EXISTS ".$_SESSION['db_name'];
 		if ($mysqli->query($sql) === TRUE) {
-			$dbErrorString = null;
+			$dbErrorString=FALSE;
 		} else {
 			$dbErrorString .= "Error creating database ".$_SESSION['db_name'].": " . $mysqli->error . "<br>";
 		}
 	}
 }
+
+
 // Select database
-if ($dbErrorString && strpos($dbErrorString, "DB connection failed")===FALSE && !$mysqli->select_db ($_SESSION['db_name'])) {
+if ($dbErrorString!==FALSE && strpos($dbErrorString, "DB connection failed")===FALSE && !$mysqli->select_db ($_SESSION['db_name'])) {
 	$dbErrorString .= "Unable to select DB ".$_SESSION['db_name'].": " . mysql_error() . "<br>";
 	//exit;
-} else if (!$dbErrorString) {
+} else if ($dbErrorString===FALSE) {
 	$sql = "CREATE TABLE IF NOT EXISTS `".$_SESSION['db_userTable']."` (
 		`userid` int(11) NOT NULL AUTO_INCREMENT,
 		`username` varchar(100)  NOT NULL,
