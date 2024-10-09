@@ -11,9 +11,9 @@ services:
       #context: .
       #dockerfile: php/Dockerfile
     volumes:
-      - '../www:/var/www/html'
-      - '../docker:/var/www'
-      - '../docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+      - './www:/var/www/html'
+      - './docker:/var/www'
+      - './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
        #entrypoint: [ "bash", "-c", "sleep 10 && mongo --host mongo:27017 --eval 'rs.initiate()'"] 
@@ -34,8 +34,8 @@ services:
     links:
       - 'php'
     volumes:
-      - '../www:/var/www/html'
-      - '../docker/nginx-conf:/etc/nginx/conf.d'
+      - './www:/var/www/html'
+      - './docker/nginx-conf:/etc/nginx/conf.d'
     depends_on:
       - 'php'
     #entrypoint: sh -c "/install-app.sh & exec /docker-entrypoint.sh nginx"
