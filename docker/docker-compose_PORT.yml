@@ -3,7 +3,7 @@ services:
 
   # PHP FPM Service
   php:
-    container_name: Ownsafe_PHP
+    container_name: Ownsafe_P_PHP
     hostname: ownsafe_php
     build:
       context: https://github.com/sepla/ownsafe.git
@@ -18,7 +18,7 @@ services:
      
   # Nginx Service
   nginx:
-    container_name: Ownsafe_NGINX
+    container_name: Ownsafe_P_NGINX
     hostname: ownsafe_nginx
     build:
         context: https://github.com/sepla/ownsafe.git
@@ -36,7 +36,7 @@ services:
   # MariaDB Service
   mariadb:
     image: mariadb:10.9
-    container_name: Ownsafe_DB
+    container_name: Ownsafe_P_DB
     hostname: ownsafe_db
     tty: true
     #restart: no
