@@ -1,0 +1,58 @@
+# Services
+services:
+
+  # PHP FPM Service
+  php:
+    container_name: Ownsafe_PHP
+    hostname: ownsafe_php
+    build:
+      context: .
+      dockerfile: ./php/Dockerfile
+    volumes:
+      - 'www-data:/var/www/html'
+      - 'nginx-conf:/nginx-conf'
+      #- './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+    depends_on:
+      - mariadb
+    tty: true 
+     
+  # Nginx Service
+  nginx:
+    container_name: Ownsafe_NGINX
+    hostname: ownsafe_nginx
+    build:
+        context: .
+        dockerfile: ./nginx/Dockerfile
+    ports:
+      - 1234:80
+    links:
+      - 'php'
+    volumes:
+      - 'www-data:/var/www/html'
+      - 'nginx-conf:/etc/nginx/conf.d'
+    depends_on:
+      - 'php'
+  
+  # MariaDB Service
+  mariadb:
+    image: mariadb:10.9
+    container_name: Ownsafe_DB
+    hostname: ownsafe_db
+    tty: true
+    #restart: no
+    ports:
+      - "3307:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: ownsafe
+      MARIADB_DATABASE: ownsafe
+      MARIADB_USER: ownsafe
+      MARIADB_PASSWORD: ownsafe
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+
+# Volumes
+volumes:
+  mariadb-data:
+  www-data:
+  nginx-conf:
