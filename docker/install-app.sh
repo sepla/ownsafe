@@ -5,9 +5,7 @@ if [ ! -f "/ownsafe/www/index.html" ]; then
     git clone https://github.com/sepla/ownsafe.git 
 fi
 cp -r /ownsafe/www/* /var/www/html
-mkdir /var/www/docker
-cp /ownsafe/docker/php/php-logging.conf /var/www/docker
-mkdir /var/www/docker/nginx-conf
-cp /ownsafe/docker/nginx-conf/* /var/www/docker/nginx-conf
+cp /ownsafe/docker/php/php-logging.conf /usr/local/etc/php-fpm.d/zz-log.conf
+cp /ownsafe/docker/nginx-conf/* /etc/nginx/conf.d
 echo "App installation finisched"
 
