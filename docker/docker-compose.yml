@@ -8,15 +8,12 @@ services:
     build:
       context: https://github.com/sepla/ownsafe.git
       dockerfile: ./docker/php/Dockerfile
-      #context: .
-      #dockerfile: php/Dockerfile
     volumes:
       - './www:/var/www/html'
+      - './docker/nginx-conf:/docker/nginx-conf'
       #- './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
-       #entrypoint: [ "bash", "-c", "sleep 10 && mongo --host mongo:27017 --eval 'rs.initiate()'"] 
-    #command: ['bash','-c','cp ./www.bak/index* ../www; pwd; tail -f ./index.html']
     tty: true 
      
   # Nginx Service
@@ -26,8 +23,6 @@ services:
     build:
         context: https://github.com/sepla/ownsafe.git
         dockerfile: ./docker/nginx/Dockerfile
-        #context: .
-        #dockerfile: nginx/Dockerfile
     ports:
       - 1234:80
     links:
@@ -37,7 +32,6 @@ services:
       - './docker/nginx-conf:/etc/nginx/conf.d'
     depends_on:
       - 'php'
-    #entrypoint: sh -c "/install-app.sh & exec /docker-entrypoint.sh nginx"
   
   # MariaDB Service
   mariadb:
