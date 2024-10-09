@@ -7,7 +7,7 @@ services:
     hostname: ownsafe_php
     build:
       context: https://github.com/sepla/ownsafe.git
-      dockerfile: ./docker/php/PORT.Dockerfile
+      dockerfile: ./docker/php/Dockerfile
     volumes:
       - 'www-data:/var/www/html'
       - 'nginx-conf:/nginx-conf'
@@ -22,7 +22,7 @@ services:
     hostname: ownsafe_nginx
     build:
         context: https://github.com/sepla/ownsafe.git
-        dockerfile: ./docker/nginx/PORT.Dockerfile
+        dockerfile: ./docker/nginx/Dockerfile
     ports:
       - 1234:80
     links:
