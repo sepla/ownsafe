@@ -58,10 +58,10 @@ volumes:
     driver_opts:
         device: /data/ownsafe/mariadb-data
   www-data:
-  	driver: local
+    driver: local
     driver_opts:
         device: /data/ownsafe/www-data
   nginx-conf:
-  	driver: local
+    driver: local
     driver_opts:
         device: /data/ownsafe/nginx-conf
