@@ -6,6 +6,7 @@ if [ ! -f "/ownsafe/www/index.html" ]; then
 fi
 cp -r /ownsafe/www/* /var/www/html
 cp /ownsafe/docker/php/php-logging.conf /usr/local/etc/php-fpm.d/zz-log.conf
-cp /ownsafe/docker/nginx-conf/* /etc/nginx/conf.d
+mkdir -p /etc/nginx/conf.d
+cp /ownsafe/docker/nginx-conf/* /etc/nginx/conf.d -r
 echo "App installation finisched"
 
