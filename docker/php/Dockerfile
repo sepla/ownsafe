@@ -9,4 +9,4 @@ RUN docker-php-ext-install curl gd mysqli pdo pdo_mysql xml
 RUN git clone https://github.com/sepla/ownsafe.git /ownsafe
 RUN ls -lah /ownsafe/docker
 RUN chmod +x /ownsafe/docker/install-app.sh 
-CMD ["/ownsafe/docker/install-app.sh","&"]
+#CMD ["/ownsafe/docker/install-app.sh","&"]
