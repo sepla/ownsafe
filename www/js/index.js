@@ -26,12 +26,13 @@
  */
 
 var isApp = false;
+var ver   = "1.31";
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
         window.open = cordova.InAppBrowser.open;
         isApp = true;
-        window.sessionStorage.setItem("ver","Ver. 1.30");
+        window.sessionStorage.setItem("ver","Ver. "+ver);
         console.log("OwnSafe - "+window.sessionStorage.getItem("ver"));
 
         if (window.localStorage.getItem('OwnSafeServerUrl') && window.localStorage.getItem('OwnSafeServerUrl').trim().length > 0) {
@@ -52,8 +53,7 @@ function onDeviceReady() {
         } else {
             window.localStorage.setItem('uiDarkMode','true');
             window.sessionStorage.setItem('uiDarkMode','true');
-        }
-
+        }        
         console.log("App:"+isApp);
 }
 console.log("App:"+isApp);
@@ -63,9 +63,21 @@ if(typeof(Storage) === "undefined") {
     alert("Storage not supported! Use another browser such as Firefox");
 }
 
-sessionStorage.setItem("ver","Ver. 1.29");
+sessionStorage.setItem("ver","Ver. "+ver);
 console.log("OwnSafe - "+sessionStorage.getItem("ver"));
-
+if (window.sessionStorage.getItem('OwnSafeServerUrl') && window.sessionStorage.getItem('OwnSafeServerUrl').trim().length > 0) {
+    $.ajax({
+        url: sessionStorage.getItem('OwnSafeServerUrl')+'/src/init.php',
+        type: 'GET',
+        success:function(result){
+            console.log("DB Init: "+result);
+        },
+        error:function(xhr,status,error){
+            console.log("DB Init: "+xhr+" STATUS: "+status+" ERROR:"+error);
+        }
+    });
+} else console.log("DB Init: follow");
+        
 var serverUrl = getCookie("OwnSafeServerUrl");
 if (serverUrl && serverUrl.trim().length > 0) {
         localStorage.setItem('OwnSafeServerUrl',serverUrl);
