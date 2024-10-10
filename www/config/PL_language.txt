@@ -51,6 +51,7 @@
 151: Podaj ważny adres e-mail.
 152: Sesja nieważna. Zaloguj się ponownie.
 153: Proszę czekać...
+154: Server email nie jest skonfigurowany (folder config w installacji)
 200: Menu
 201: Profil
 202: Zmień logowanie
@@ -130,7 +131,7 @@
 285: Nie pamiętam hasła:
 286: Nie ma funkcji „nie pamiętam hasła”, ponieważ hasło nigdy nie jest przechowywany w systemie. Podaj podpowiedź do hasła w swoim profilu i będzie ona wysłana na twój adres e-mail jeśli go zapomniałeś. Nie należy tu wprowadzać hasła.
 287: Powiadomienia e-mail
-288: Zaleca się, aby podać swój adres e-mail w twoim profilu. Będziesz informowany o nieudanych próbach logowania, a jeśli zapomniałeś hasło, podpowiedź dotyczącą hasła może być wysłana na twój adres e-mail (jeśli podpowiedź twojego hasła jest zapisana w profilu). Aby wysłać e-mail serwer, na którym używasz tej aplikacji musi być poprawnie skonfigurowany (musisz być w stanie wysłać e-mail na serwerze przez sendmail, ewentualnie sprawdzić parametr "Path to sendmail" na phpinfo).
+288: Zaleca się, aby podać swój adres e-mail w twoim profilu. Będziesz informowany o nieudanych próbach logowania, a jeśli zapomniałeś hasło, podpowiedź dotyczącą hasła może być wysłana na twój adres e-mail (jeśli podpowiedź twojego hasła jest zapisana w profilu). Aby wysłać e-mail serwer, na którym używasz tej aplikacji musi być poprawnie skonfigurowany (folder config w miejscu installacji applikacji).
 289: Kontakt
 290: Pokaż hasło
 291: Szukaj w

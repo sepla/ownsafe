@@ -51,6 +51,7 @@
 151: Please enter valid email address.
 152: Invalid session. Please login again.
 153: Please wait...
+154: Email server has not been configured (config folder of the installation)
 200: Menu
 201: Profile
 202: Change login data
@@ -130,7 +131,7 @@
 285: Forgot password
 286: There is no 'forgot password' button available because the password is never stored on the system. Enter a password hint to you profile and it will be send to your email address if you cannot remember your password. It will be sent to you via e-mail. Don't enter the password here. 
 287: E-Mail notifications
-288: It is recommended to add your email address to your profile. You will be informed about failed login attempts and if you have forgot your password a password hint can be send to this email address (if you have added a password hint your profile). For sending an email the server you are running this application on must be properly configured (you must be able to send an email by sendmail on your server alternatively check the "Path to sendmail" parameter on phpinfo).
+288: It is recommended to add your email address to your profile. You will be informed about failed login attempts and if you have forgot your password a password hint can be send to this email address (if you have added a password hint your profile). For sending an email the server you are running this application on must be properly configured (see config folder in installation path).
 289: Contact
 290: Show password
 291: Search in

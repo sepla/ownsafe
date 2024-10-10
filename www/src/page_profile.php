@@ -39,6 +39,9 @@ require_once(__ROOT__.'/config/config.php');
 						<label for="profile_email" class="smallerFont"><?php echo getTXT(235); ?></label>
 						<input type="email" value="" name="profile_email" id="profile_email" data-mini="true" placeholder="<?php echo getTXT(235); ?>" tabindex="3" />
 						<p class="description"><?php echo getTXT(236); ?></p>
+						<?php if (isset($_SESSION['mailHost']) && $_SESSION['mailHost']=="hostUrl") 
+			                echo '<p id="profile_noemailhost" class="warningDescription">'.getTXT(154).'<br></p>';
+			            ?>    
 						<label for="profile_hint" class="smallerFont"><?php echo getTXT(237); ?></label>
 						<textarea name="profile_hint" id="profile_hint" data-mini="true" placeholder="<?php echo getTXT(237); ?>" rows="2" tabindex="4"></textarea>
 						<p class="description"><?php echo getTXT(238); ?></p>

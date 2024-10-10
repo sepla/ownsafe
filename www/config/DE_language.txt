@@ -51,6 +51,7 @@
 151: Bitte eine gültige E-Mail Adresse angeben.
 152: Sitzung ungültig. Bitte erneut anmelden.
 153: Bitte warten...
+154: E-Mail Server wurde nicht konfiguriert (config-Ordner der Installation)
 200: Menü
 201: Profil
 202: Zugangsdaten ändern
@@ -130,7 +131,7 @@
 285: Passwort vergessen
 286: Es steht keine "Passwort vergessen"-Funktion zur Verfügung, weil das Passwort nie auf dem System gespeichert wird. Bitte einen Passwort-Hinweis in Ihrem Profil angeben, welches Ihnen helfen soll sich an Ihr Passwort zu erinnern. Es wird an Ihre E-Mail Adresse gesendet. Bitte hier kein Passwort eintragen.
 287: E-Mail Benachrichtigungen
-288: Es wird empfohlen Ihre E-Mail Adresse in Ihrem Profil anzugeben. Sie werden über Fehlversuche bei der Anmeldung informiert und falls Sie Ihr Passwort vergessen sollten kann ein Passwort-Hinweis zugestellt werden (wenn Sie einen in Ihrem Profil hinterlegt haben). Zum Versenden von E-Mails muss der Server, auf dem diese Anwendung betrieben wird, korrekt konfiguriert sein (Das Versenden der E-Mails über sendmail auf dem Server muss möglich sein, alternativ prüfen Sie den "Path to sendmail"-Parameter in der phpinfo).
+288: Es wird empfohlen Ihre E-Mail Adresse in Ihrem Profil anzugeben. Sie werden über Fehlversuche bei der Anmeldung informiert und falls Sie Ihr Passwort vergessen sollten kann ein Passwort-Hinweis zugestellt werden (wenn Sie einen in Ihrem Profil hinterlegt haben). Zum Versenden von E-Mails muss der Server, auf dem diese Anwendung betrieben wird, korrekt konfiguriert sein (siehe config-Ordner im Installationsverzeichnis der Anwendung).
 289: Kontakt
 290: Passwort zeigen
 291: Suchen in

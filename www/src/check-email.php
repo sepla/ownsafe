@@ -18,25 +18,24 @@ if (isset($_REQUEST['email'])) $email = $_REQUEST['email']; else $email = null;
 
 if ($email != null) {
 
-	$qry = "SELECT email,userid FROM ".$_SESSION['db_userTable']." WHERE email='$email'";
+	$qry = "SELECT email,userid FROM ".$_SESSION['db_userTable']." WHERE email='".$email."'";
 
 	$res 		= $mysqli->query($qry);
 	$num_row 	= $res->num_rows;
 
-	if ($res !== false && $num_row) {
-		$row 		= $res->fetch_assoc();
-		if ($row) {
-			$userid = $row['userid'];
-			if( $num_row == 0 ) {
-				$output = array('status' => true, 'message' => 'free');
-			} else if ($userid == $_SESSION['uid']) {
-				$output = array('status' => true, 'message' => 'owner');
-			} else {
-				$output = array('status' => true, 'message' => 'eexists');
-			}
-		}
-	} else $output = array('status' => false, 'message' => 'db_error');
-
+	if ($res !== false) {
+        if ($num_row == 0) {
+          $output = array('status' => true, 'message' => 'free');
+        } else {
+            $row            = $res->fetch_assoc();
+            $userid = $row['userid'];
+            if ($userid == $_SESSION['uid']) {
+                $output = array('status' => true, 'message' => 'owner');
+            } else {
+                $output = array('status' => true, 'message' => 'eexists');
+            }
+        } 
+    } else $output = array('status' => false, 'message' => 'db_error');
 
 } else $output = array('status' => true, 'message' => 'nullemail');
 

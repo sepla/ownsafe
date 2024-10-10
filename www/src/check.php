@@ -29,6 +29,7 @@ if ($res !== false) {
 		$_SESSION['uname'] = $row['username'];
 		$logincounter = $row['logincounter'];
 		$logincounter += 1;
+
 		$loginfailure = $row['loginfailure'];
 		$lastlogin = $row['lastlogin'];
 		$lastfailedlogin = $row['lastfailedlogin'];
@@ -41,7 +42,7 @@ if ($res !== false) {
 		else $blocktime = 15;
 		
 		if ($lastlogin== null || !$lastlogin) $lastlogin = "01.01.70 01:00";
-        if ($lastfailedlogin== null || !$lastfailedlogin) $lastfailedlogin = "01.01.7>
+        if ($lastfailedlogin== null || !$lastfailedlogin) $lastfailedlogin = "01.01.70 01:00";
 
 		if ($status != "blocked") {
 
@@ -196,6 +197,7 @@ if ($res !== false) {
 						$content = str_replace("[current_loginfailure]", $current_loginfailure, $content);
 						$additionaltext = date('Y-m-d H:i:s').' - '.getUserIP().' - '.$_SERVER['HTTP_USER_AGENT'].' - '.getProtocolStatus($status).' - '.($loginfailure+1).' - '.$logincounter;
 						$content = str_replace("[additionaltext]", $additionaltext, $content);
+
 
 						
 					} else {

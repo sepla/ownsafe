@@ -50,9 +50,10 @@ try {
     $mailNoReply      = 'no-reply@mymail.com';
 	#$mail->SMTPDebug = SMTP::DEBUG_SERVER;            //Enable verbose debug output
 	
+	// Validierung
 	if (filter_var($mailFrom,    FILTER_VALIDATE_EMAIL)) $mail->setFrom($mailFrom, 'OwnSafe');
     if (filter_var($mailNoReply, FILTER_VALIDATE_EMAIL)) $mail->addReplyTo($mailNoReply, 'Information');
-    
+    if ($mail->Host=="hostUrl")  $_SESSION['mailHost'] = $mail->Host;
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
@@ -174,26 +175,28 @@ function generatePepper() {
 // Email headers
 function sendMail($recipient,$subject,$content) {
 	global $mail,$mysqli;
-	try {
-		if (filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
-			$mail->isHTML(true);               //Set email format to HTML
-			$mail->addAddress($recipient);     //Add a recipient, Name is optional	
-	   	    $mail->Subject = $subject;
-			$mail->Body    = $content;
-			$mail->AltBody = $content;
-			$mail->send();
-		}
-	} catch (Exception $ex) {
-		$qry = "SELECT userid FROM ".$_SESSION['db_userTable']." WHERE email='".$recipient."'";
-		$res = $mysqli->query($qry);
-		if ($res !== false) {
-			$num_row 	= $res->num_rows;
-			if( $num_row == 1 ) {
-				$row 		= $res->fetch_assoc();
-				$userid = $row['userid'];
-				logError($userid,"MAIL ERROR",$ex);
-			}
-		} 
+	if ($mail->Host!="hostUrl") { 
+	    try {
+		    if (filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
+			    $mail->isHTML(true);               //Set email format to HTML
+			    $mail->addAddress($recipient);     //Add a recipient, Name is optional	
+	       	    $mail->Subject = $subject;
+			    $mail->Body    = $content;
+			    $mail->AltBody = $content;
+			    $mail->send();
+		    }
+	    } catch (Exception $ex) {
+		    $qry = "SELECT userid FROM ".$_SESSION['db_userTable']." WHERE email='".$recipient."'";
+		    $res = $mysqli->query($qry);
+		    if ($res !== false) {
+			    $num_row 	= $res->num_rows;
+			    if( $num_row == 1 ) {
+				    $row 		= $res->fetch_assoc();
+				    $userid = $row['userid'];
+				    logError($userid,"MAIL ERROR",$ex);
+			    }
+		    } 
+	    }
 	}
 }
 
