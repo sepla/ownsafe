@@ -21,7 +21,7 @@ services:
         context: https://github.com/sepla/ownsafe.git
         dockerfile: ./docker/nginx/PORT.Dockerfile
     ports:
-      - 1234:80
+      - 81:80
     links:
       - 'php'
     volumes:
@@ -36,8 +36,8 @@ services:
     hostname: ownsafe_db
     tty: true
     #restart: no
-    ports:
-      - "3307:3306"
+    #ports:
+    #  - "3307:3306"
     environment:
       MARIADB_ROOT_PASSWORD: ownsafe
       MARIADB_DATABASE: ownsafe
