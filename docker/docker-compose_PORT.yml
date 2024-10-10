@@ -3,11 +3,11 @@ services:
 
   # PHP FPM Service
   php:
-    container_name: Ownsafe_P_PHP
+    container_name: Ownsafe_PHP
     hostname: ownsafe_php
     build:
       context: https://github.com/sepla/ownsafe.git
-      dockerfile: ./docker/php/Dockerfile
+      dockerfile: ./docker/php/PORT.Dockerfile
     volumes:
       - 'www-data:/var/www/html'
       - 'nginx-conf:/nginx-conf'
@@ -18,11 +18,11 @@ services:
      
   # Nginx Service
   nginx:
-    container_name: Ownsafe_P_NGINX
+    container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
     build:
         context: https://github.com/sepla/ownsafe.git
-        dockerfile: ./docker/nginx/Dockerfile
+        dockerfile: ./docker/nginx/PORT.Dockerfile
     ports:
       - 1234:80
     links:
@@ -36,7 +36,7 @@ services:
   # MariaDB Service
   mariadb:
     image: mariadb:10.9
-    container_name: Ownsafe_P_DB
+    container_name: Ownsafe_DB
     hostname: ownsafe_db
     tty: true
     #restart: no
