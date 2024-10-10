@@ -1,7 +1,5 @@
-# Services
 services:
-
-  # PHP FPM Service
+  
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
@@ -14,9 +12,8 @@ services:
       #- './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
-    tty: true 
-     
-  # Nginx Service
+    tty: true
+    
   nginx:
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
@@ -33,7 +30,6 @@ services:
     depends_on:
       - 'php'
   
-  # MariaDB Service
   mariadb:
     image: mariadb:10.9
     container_name: Ownsafe_DB
@@ -50,8 +46,6 @@ services:
     volumes:
       - mariadb-data:/var/lib/mysql
 
-
-# Volumes
 volumes:
   mariadb-data:
   www-data:

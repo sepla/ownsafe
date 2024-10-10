@@ -7,7 +7,7 @@ RUN apt-get update && \
 # Installing additional PHP modules
 RUN docker-php-ext-install curl gd mysqli pdo pdo_mysql xml
 RUN git clone https://github.com/sepla/ownsafe.git /ownsafe
-RUN sleep 15
 RUN mkdir -p /nginx-conf
-RUN cp -r /ownsafe/www/* /var/www/html
-RUN cp -r /ownsafe/docker/nginx-conf/* /nginx-conf
+#RUN sleep 10
+#RUN cp -r /ownsafe/www/* /var/www/html
+#RUN cp -r /ownsafe/docker/nginx-conf/* /nginx-conf
