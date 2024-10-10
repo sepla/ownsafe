@@ -40,9 +40,12 @@ if ($res !== false) {
 		else if ($loginfailure>9) $blocktime = 60;
 		else $blocktime = 15;
 		
+		if ($lastlogin== null || !$lastlogin) $lastlogin = "01.01.70 01:00";
+        if ($lastfailedlogin== null || !$lastfailedlogin) $lastfailedlogin = "01.01.7>
+
 		if ($status != "blocked") {
 
-			if (!$lastlogin) $lastlogin = "01.01.70 01:00";
+			if (!$lastlogin || $lastlogin == null) $lastlogin = "01.01.70 01:00";
 			$lastlogin = date("d.m.y H:i", strtotime($lastlogin));
 			if ($lastlogin == "01.01.70 01:00") $lastlogin = date("d.m.y H:i");
 			$lastfailedlogin = date("d.m.y H:i", strtotime($lastfailedlogin));
