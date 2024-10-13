@@ -13,6 +13,7 @@ services:
     depends_on:
       - mariadb
     tty: true
+    restart: unless-stopped
     
   nginx:
     container_name: Ownsafe_NGINX
@@ -29,13 +30,15 @@ services:
       - 'nginx-conf:/etc/nginx/conf.d'
     depends_on:
       - 'php'
+    tty: true
+    restart: unless-stopped
   
   mariadb:
     image: mariadb:10.9
     container_name: Ownsafe_DB
     hostname: ownsafe_db
     tty: true
-    #restart: no
+    restart: unless-stopped
     #ports:
     #  - "3307:3306"
     environment:

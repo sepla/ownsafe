@@ -14,7 +14,8 @@ services:
       #- './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
-    tty: true 
+    tty: true
+    restart: unless-stopped
      
   # Nginx Service
   nginx:
@@ -32,6 +33,8 @@ services:
       - 'nginx-conf:/etc/nginx/conf.d'
     depends_on:
       - 'php'
+    tty: true
+    restart: unless-stopped
   
   # MariaDB Service
   mariadb:
@@ -39,7 +42,7 @@ services:
     container_name: Ownsafe_DB
     hostname: ownsafe_db
     tty: true
-    #restart: no
+    restart: unless-stopped
     #ports:
     #  - "3307:3306"
     environment:

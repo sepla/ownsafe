@@ -46,8 +46,8 @@ try {
     $mail->SMTPAuth   = true;                          //Enable SMTP authentication
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;   //Enable implicit TLS encryption
     $mail->Port       = 465;                           //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-    $mailFrom         = 'from@mymail';	
-    $mailNoReply      = 'no-reply@mymail.com';
+    $mailFrom         = 'ownsafe@local.host';	
+    $mailNoReply      = 'no-reply@local.host';
 	#$mail->SMTPDebug = SMTP::DEBUG_SERVER;            //Enable verbose debug output
 	
 	// Validierung
