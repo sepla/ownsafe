@@ -9,7 +9,7 @@ services:
     volumes:
       - 'www-data:/var/www/html'
       - 'nginx-conf:/nginx-conf'
-      - 'php:php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+      #- 'php:php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
     tty: true
