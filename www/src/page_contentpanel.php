@@ -21,7 +21,7 @@ If not, see http://www.gnu.org/licenses/.
 	<br>
 	<a data-role="button" data-rel="close" class="ui-btn ui-icon-lock ui-mini ui-btn-icon-left ui-corner-all ui-btn-inline menuButtonStyle logoutbutton"><?php echo getTXT(205); ?></a>
 </div>
-<p class="menuFooter" id="consolew">Session: <?php echo session_id(); ?></p>
+<!--<p class="menuFooter" id="consolew">Session: <?php echo session_id(); ?></p>-->
 <br>
 <div id="menu_content_footer">
 <!--	<p class="menuFooter" id="menu_footer_text"></p>
