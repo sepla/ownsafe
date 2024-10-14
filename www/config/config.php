@@ -1,10 +1,4 @@
 <?php
-#header('Access-Control-Allow-Origin: *');
-#header('Access-Control-Allow-Methods: GET, POST');
-#header("Access-Control-Allow-Headers: X-Requested-With");
-#header('Access-Control-Allow-Credentials: true');
-#header('Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range');
-
 // Copyright (C) 2015 Sebastian Plaza
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -12,7 +6,8 @@
 // of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 // You should have received a copy of the GNU General Public License along with this program. 
 // If not, see http://www.gnu.org/licenses/. 
-
+// Nur einfache Fehler melden
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 // mySQL SB
 $db_server 		= 'ownsafe_db:3306';
