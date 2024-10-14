@@ -1,12 +1,12 @@
-* Standard installation *
+* Standard docker installation *
 - Clone the git repository: https://github.com/sepla/ownsafe.git
 - Go into the created "ownsafe" folder and run: docker-compose -f ./docker/docker-compose.yml up --build -d
 
 
 * Portainer installation *
 - Create a new Stack
-    Name: Ownsafe
-    Use Repository: Repository URL: http://github.com/sepla/ownsafe.git
+    Name: ownsafe
+    Use repository with URL: http://github.com/sepla/ownsafe.git
     Compose path: docker/docker-compose.yml
 - Deploy the stack
 
@@ -22,10 +22,10 @@
     $mailNoReply      = 'no-reply@local.host';
 
 
-* SSL Installation *
+* SSL/TLS Installation *
 - Create a private key "ownsafe.key" and certificate "ownsafe.crt".
 - Go to the "ssl"-folder at the location of the "ownsave_nginx-conf" docker volume
-- Copy the created .key and .crt file to the ssl-folder
+- Copy the created .key and .crt file into the "ssl"-folder
 - Edit the nginx.conf file on "ownsave_nginx-conf"-Volume and activate the following values:
     listen 443 ssl;
     listen [::]:443 ssl;
