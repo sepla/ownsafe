@@ -16,25 +16,9 @@ ENGLISH:
     - Password generator
 
 
-   System requirements:
-
-   To run this application you need a system with following installed and useable componets (LAMP- or XAMPP-Environmant)
-    - Linux / Solaris / Windows / Mac OS X
-    - Apache web server
-    - MySql database (or compatible like MariaDB)
-    - PHP 5.2 or higher (mysqli module required)
-    - Optional: Sendmail/Posfix for sending mails
-
-
-   Server installation:
-
-    - Unzip the files and copy the ownsafe folder to the HOME-directory of the Apache server(mostly /var/www/html)
-    - Edit the configuration file (config.php in config directory): Enter on "DB" your values for the MySql database address, username, password and database name. The application creates the necessary database tables automaticly.
-    - On "LANGUAGE" you can choose the gui language. Currently available: EN, DE, PL
-    - For testing server functionality call the application test site in your browser, http://your-server-url/ownsafe/test.php
-
-    In case of problems set the owner and group of the ownsafe folder (including all files) to www-data or or change the access rights.
-
+   Docker container installation:
+   See INSTALL.txt 
+    
 
 DEUTSCH:
 
@@ -51,25 +35,8 @@ DEUTSCH:
     - Möglichkeit den Benutzernamen oder das Passwort (ohne Anzeige) eines Eintrags in die Zwischablage zu kopieren mit automatischer Löschung nach 30 Sekunden (auf der app des clients)
     - Passwort Generator
 
-   Systemvoraussetzungen:
-
-   Um die Anwendung zu betreiben, müssen folgende Komponenten installiert und lauffähig sein (LAMP- oder XAMPP-Umgebung):
-    - Linux / Solaris / Windows / Mac OS X
-    - Apache Webserver
-    - MySql Datenbank (oder kompatibel wie MariaDB)
-    - PHP 5.2 oder höher (benötigt mysqli Modul)
-    - Optional: Sendmail/Postfix zum Versenden von E-Mails
-
-
-   Installation:
-
-    - Datei entpacken und den Ordner ownsafe in das HOME-Verzeihnis des Apache-Servers kopieren (meistens /var/www/html)
-    - Die Konfigurationsdatei editieren (config.php aus dem config-Ordner): Hier unter "DB" die entsprechenden Werte für die Adresse der Mysql-Datenbank, Benutzer, Passwort und den Datenbanknamen angeben. Die benötigten Datenbanktabellen werden von der Anwendung automatisch erstellt.
-    - Unter "LANGUAGE" eventuell die Sprache wählen. Momentan verfügbar: EN, DE, PL
-    - Zum Testen der Serverfunktionalität im Browser die Testseite der Anwendung aufrufen, http://my-server-url/ownsafe/test.php
-
-    Bei Problemen bitte den Besitzer und Gruppe des ownsafe-Ordners (inklusive aller Dateien) auf www-data setzen oder die Zugriffsrechte verändern.
-
+   Docker-Container Installation:
+   Siehe INSTALL.txt
 
 
 POLSKI:
@@ -88,26 +55,8 @@ POLSKI:
     - Generator haseł
 
 
-  Wymagania systemowe
-
-  Aby uruchomić aplikację, następujące elementy muszą być zainstalowane i uruchomione (środowisko LAMP- oder XAMPP):
-    - Linux / Solaris / Windows / Mac OS X
-    - Apache serwer HTTP (z SSL)
-    - MySql baza danych (albo zgodna jak MariaDB)
-    - PHP 5.2 lub wyższy (potrzebny moduł mysqli)
-    - Opcjonalnie: Sendmail/Postfix do wysyłania email
-
-
-  Instalacja:
-
-    - Rozpakuj pliki i skopiuj folder ownsafe do katalogu HOME z serwera Apache (na ogół /var/www/)
-    - Edytuj plik konfiguracyjny (config.php w folderze config): Przy "DB" wpisz dane dotyczące bazy danych MySql jak adres, login, hasło i nazwa bazy danych. Tabele bazy danych są tworzone automatycznie przez aplikację.
-    - Przy "LANGUAGE" wpisz ewentualnie język użytkownika. Obecnie ważne wartości: EN, DE, PL
-    - Na test funkcji serwera otwórz strone testową aplikacji w przeglądarce, http://my-server-url/ownsafe/test.php
-
-    W przypadku problemów ustaw właściciela i grupę folderu ownsafe (w tym wszystkie pliki) do www-data lub zmien prawa dostępu.
-
-
+  Instalacja Docker-Container:
+  Zobacz INSTALL.txt
 
 -----------------------------------
 

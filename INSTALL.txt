@@ -1,2 +1,22 @@
+Standard installation:
+- Clone the git repository: https://github.com/sepla/ownsafe.git
+- Go into the created ownsafe folder and run: docker-compose -f ./docker/docker-compose.yml up --build -d
 
+Portainer installation
+- Create a new Stack
+    Name: Ownsafe
+    Use Repository: Repository URL: http://github.com/sepla/ownsafe.git
+    Compose path: docker/docker-compose.yml
+- Deploy the stack
+
+SSL Installation
+- Create a private key "ownsafe.key" and certificate "ownsafe.crt".
+- Go to the "ownsave_nginx-conf"-Volume and copy the .key and .crt file to the ssl-folder
+- Edit the nginx.conf file on "ownsave_nginx-conf"-Volume and activate the following values:
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/nginx/conf.d/ssl/ownsafe.crt;
+    ssl_certificate_key /etc/nginx/conf.d/ssl/ownsafe.key;
+    include /etc/nginx/conf.d/ssl/ssl-params.conf;
+- Restart the container, https works on port 444
 
