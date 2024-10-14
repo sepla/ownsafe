@@ -9,7 +9,7 @@ services:
     volumes:
       - 'www-data:/var/www/html'
       - 'nginx-conf:/nginx-conf'
-      #- './docker/php/php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+      - 'php:php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
     depends_on:
       - mariadb
     tty: true
@@ -23,6 +23,7 @@ services:
         dockerfile: ./docker/nginx/Dockerfile
     ports:
       - 81:80
+      - 444:443
     links:
       - 'php'
     volumes:

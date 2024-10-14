@@ -23,6 +23,7 @@ services:
         dockerfile: ./docker/nginx/PORT.Dockerfile
     ports:
       - 81:80
+      - 444:443
     links:
       - 'php'
     volumes:
