@@ -1,7 +1,5 @@
-# Services
 services:
 
-  # PHP FPM Service
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
@@ -17,7 +15,6 @@ services:
     tty: true
     restart: unless-stopped 
      
-  # Nginx Service
   nginx:
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
@@ -25,7 +22,7 @@ services:
         context: .
         dockerfile: ./nginx/Dockerfile
     ports:
-      - 1234:80
+      - 81:80
     links:
       - 'php'
     volumes:
@@ -36,16 +33,14 @@ services:
     tty: true
     restart: unless-stopped  
   
-  # MariaDB Service
   mariadb:
     image: mariadb:10.9
     container_name: Ownsafe_DB
     hostname: ownsafe_db
     tty: true
-    tty: true
     restart: unless-stopped
-    ports:
-      - "3307:3306"
+    #ports:
+    #  - "3307:3306"
     environment:
       MARIADB_ROOT_PASSWORD: ownsafe
       MARIADB_DATABASE: ownsafe

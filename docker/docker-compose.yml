@@ -1,7 +1,5 @@
-# Services
 services:
 
-  # PHP FPM Service
   php:
     container_name: Ownsafe_PHP
     hostname: ownsafe_php
@@ -16,8 +14,7 @@ services:
       - mariadb
     tty: true
     restart: unless-stopped
-     
-  # Nginx Service
+
   nginx:
     container_name: Ownsafe_NGINX
     hostname: ownsafe_nginx
@@ -36,7 +33,6 @@ services:
     tty: true
     restart: unless-stopped
   
-  # MariaDB Service
   mariadb:
     image: mariadb:10.9
     container_name: Ownsafe_DB
@@ -53,8 +49,6 @@ services:
     volumes:
       - mariadb-data:/var/lib/mysql
 
-
-# Volumes
 volumes:
   mariadb-data:
   www-data:
