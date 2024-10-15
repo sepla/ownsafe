@@ -6,8 +6,7 @@ ENGLISH:
 
   OwnSafe is an open source password manager for your own linux server. It can be used both in the browser and as an smartphone app (ANDROID).
 
-  This application works very fine on a Raspberry Pi (or every other linux server) and have to be intergrated into a LAMP environment (LINUX Apache MySQL PHP or all other varieties like XAMPP).
-
+    - This application works very fine on a Raspberry Pi (or every other linux server)
     - All the encryption/decryption of the data records is handled on client side (app)
     - All entries are transmitted encrypted form/to the server
     - The symmetric key for encrypting/decrypting your entries is generated every time anew using your credentials and is never stored permanently on any system
@@ -26,8 +25,7 @@ DEUTSCH:
 
   OwnSafe ist ein Passwortmanager auf OpenSource-Basis für den eigenen Linux-Server. Es kann sowohl im Browser als auch als Smartphone App (ANDROID) verwendet werden.
 
-  Die Anwendunng kann sehr gut auf einem Raspberry Pi (bzw. einem beliebigen Linux-Server) betrieben werden und wird in einer LAMP-Umgebung installiert (LINUX Apache MySQL PHP bzw. deren Varianten wie XAMPP).
-
+    - Die Anwendunng kann sehr gut auf einem Raspberry Pi (bzw. einem beliebigen Linux-Server) betrieben werden
     - Die gesamte Ver- und Entschlüsselung der Einträge wird auf der Client-Seite ausgeführt (app)
     - Alle Einträge werden verschlüsselt vom/zum Server übertragen
     - Der symmetrische Schlüssel für die Ver- bzw. Entschlüsselung der Einträge wird jedes mal neu aus den Zugangsdaten generiert und ist niemals auf einem der Systeme dauerhaft gespeichert
@@ -45,8 +43,7 @@ POLSKI:
 
   OwnSafe jest menedżerem haseł wraz na podstawie OpenSource dla własnego serwera Linux.
 
-  Ta aplikacja dobrze współpracuje z Raspberry Pi (albo też z każdym innym serwerem linux) i jest instalowane w środowisku platform LAMP (LINUX Apache MySQL PHP albo też wariantach jak XAMPP).
-
+    - Ta aplikacja dobrze współpracuje z Raspberry Pi (albo też z każdym innym serwerem linux)
     - Szyfrowanie/deszyfrowanie wpisów jest wykonywane całkowicie po stronie klienta (appka)
     - Wszystkie wpisy są przesyłane zaszyfrowane od/do serwera
     - Klucz symetryczny na szyfrowanie i deszyfrowanie wpisów jest za każdym razem na nowo generowany z danych logowania i nigdy nie jest zapisany na satło na rzadnym systemie
